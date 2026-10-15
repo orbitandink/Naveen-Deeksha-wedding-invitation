@@ -597,8 +597,8 @@
 <body>
 
     <!-- Background Music -->
-    <audio id="weddingMusic" loop preload="none">
-        <source src="music/wedding.mp3" type="audio/mpeg">
+    <audio id="weddingMusic" loop autoplay preload="auto">
+        <source src="wedding-music.mp3" type="audio/mpeg">
     </audio>
 
     <button class="music-button" id="musicButton" aria-label="Play background music" aria-pressed="false">
@@ -990,12 +990,12 @@
         async function startMusic() {
             try {
                 await music.play();
+
                 musicButton.classList.add("playing");
                 musicButton.setAttribute("aria-pressed", "true");
                 musicButton.setAttribute("aria-label", "Pause background music");
             } catch (error) {
-                // Browser may block playback or the audio file may be missing.
-                console.info("Music playback is unavailable until playback is allowed.");
+                console.info("Autoplay blocked by the browser.");
             }
         }
 
@@ -1006,6 +1006,10 @@
             musicButton.setAttribute("aria-label", "Play background music");
         }
 
+        // Try autoplay as soon as the page loads
+        window.addEventListener("load", startMusic);
+
+        // Keep the music button available for manual control
         musicButton.addEventListener("click", async () => {
             if (music.paused) {
                 await startMusic();

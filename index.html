@@ -343,18 +343,23 @@
         }
 
         .event-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-            max-width: 1100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            max-width: 900px;
             margin: 45px auto 0;
         }
 
         .event-card {
+            flex: 0 1 350px;
+            width: 100%;
             padding: 35px 22px;
             border: 1px solid #ddc9a6;
             background: var(--paper);
             transition: transform .25s ease;
+            text-align: center;
         }
 
         .event-card:hover {
@@ -755,48 +760,6 @@
 
             <div class="event-grid">
 
-                <article class="event-card">
-
-                    <div class="event-icon">✿</div>
-
-                    <p class="event-number">01</p>
-
-                    <h3>Haldi Ceremony</h3>
-
-                    <p class="event-date">21 November 2026</p>
-
-                    <p class="event-time">9:52 AM onwards</p>
-
-                    <div class="event-line"></div>
-
-                    <p class="event-description">
-                        A joyful morning filled with turmeric,
-                        laughter and family blessings.
-                    </p>
-
-                </article>
-
-                <article class="event-card">
-
-                    <div class="event-icon">❋</div>
-
-                    <p class="event-number">02</p>
-
-                    <h3>Sangeet Night</h3>
-
-                    <p class="event-date">21 November 2026</p>
-
-                    <p class="event-time">9:52 AM onwards</p>
-
-                    <div class="event-line"></div>
-
-                    <p class="event-description">
-                        An evening of music, dancing and
-                        unforgettable memories.
-                    </p>
-
-                </article>
-
                 <article class="event-card featured-event">
 
                     <div class="event-icon">❦</div>
@@ -807,13 +770,33 @@
 
                     <p class="event-date">21 November 2026</p>
 
-                    <p class="event-time">5:30 PM onwards</p>
+                    <p class="event-time">9:52 AM onwards</p>
 
                     <div class="event-line"></div>
 
                     <p class="event-description">
                         Join us as we exchange vows and begin
                         our forever together.
+                    </p>
+
+                </article>
+
+                <article class="event-card featured-event">
+
+                    <div class="event-icon">❦</div>
+
+                    <p class="event-number">03</p>
+
+                    <h3>The Reception</h3>
+
+                    <p class="event-date">22 November 2026</p>
+
+                    <p class="event-time">7:00 PM onwards</p>
+
+                    <div class="event-line"></div>
+
+                    <p class="event-description">
+                        Join us as we celebrate our togetherness.
                     </p>
 
                 </article>
@@ -836,17 +819,45 @@
                 <h3>Hyderabad</h3>
 
                 <p class="venue-address">
-                    Add your wedding hall or venue name here<br>
-                    Hyderabad
                 </p>
 
                 <p class="venue-time">
-                    21 November 2026 · ((9:52) AM)
+                    21 November 2026 · (9:52 AM)
                 </p>
 
                 <a class="gold-button"
-                    href="https://www.google.com/maps/search/?api=1&query=Rameswaram%2C%20Tamil%20Nadu" target="_blank"
-                    rel="noopener noreferrer">
+                    href="https://www.google.com/maps/place/MSR+Convention+Garden/@17.5686875,78.5119375,3a,75y,90t/data=!3m8!1e2!3m6!1sCIABIhAGbwPTfgw2VGepx2YACxiX!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgrass-cs%2FAABkmLeNBBYfztipvKmjjnc3FsqrPSQTgKSP86KXEM76D2fQ7Vi2duSXp77VvdRb3HXU1sAbmgr3dp_uzYiC1O4YV_p1GQgFBwuzew_77HFUEWQTeazMOpiPZbUHmnYsE8HH47iNQh0mYDHCUyBt%3Dw114-h86-k-no!7i4096!8i3072!4m7!3m6!1s0x3bcb857941c6016b:0xe15546a2eeb3dcf!8m2!3d17.5686875!4d78.5119375!10e5!16s%2Fg%2F11srys2kdj?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" rel="noopener noreferrer">
+                    VIEW LOCATION ↗
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Reception Venue -->
+        <section class="venue section reveal">
+
+            <p class="eyebrow">WHERE OUR PARTY CONTINUES</p>
+
+            <h2>The Reception Venue</h2>
+
+            <div class="venue-card">
+
+                <div class="venue-decoration">❤︎</div>
+
+                <h3>Hyderabad</h3>
+
+                <p class="venue-address">
+                </p>
+
+                <p class="venue-time">
+                    22 November 2026 · (7:00 PM)
+                </p>
+
+                <a class="gold-button"
+                    href="https://www.google.com/maps/place/Jenvi+Conventions/@17.5632982,78.5279359,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb85c2f6b52e09:0xdb8b38cf44c7cf3c!8m2!3d17.5632931!4d78.5305108!16s%2Fg%2F11r_v6lgs_?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" rel="noopener noreferrer">
                     VIEW LOCATION ↗
                 </a>
 

@@ -688,6 +688,66 @@
                 padding: 25px 15px;
             }
         }
+
+        /* Romantic falling rose petals */
+        .rose-petal {
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: var(--petal-width);
+            height: var(--petal-height);
+            pointer-events: none;
+            opacity: 0;
+            border-radius: 80% 10% 70% 30%;
+            transform-origin: center;
+            will-change: transform, opacity;
+
+            background: linear-gradient(135deg,
+                    var(--petal-light) 0%,
+                    var(--petal-color) 45%,
+                    var(--petal-dark) 100%);
+
+            box-shadow:
+                inset 2px 1px 3px rgba(255, 255, 255, 0.4),
+                0 2px 7px rgba(72, 20, 32, 0.15);
+
+            animation: rosePetalFall var(--fall-duration) cubic-bezier(.2, .55, .4, 1) var(--fall-delay) forwards;
+        }
+
+        @keyframes rosePetalFall {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 0, 0) rotate(0deg) scale(.45);
+            }
+
+            10% {
+                opacity: .95;
+            }
+
+            30% {
+                transform: translate3d(calc(var(--drift) * .35),
+                        calc(var(--fall-distance) * .3),
+                        0) rotate(calc(var(--rotation) * .3)) scale(1);
+            }
+
+            65% {
+                opacity: .9;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate3d(var(--drift),
+                        var(--fall-distance),
+                        0) rotate(var(--rotation)) scale(.75);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rose-petal {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -918,7 +978,7 @@
                 </p>
 
                 <a class="gold-button"
-                    href="https://www.google.com/maps/place/MSR+Convention+Garden/@17.5686875,78.5119375,3a,75y,90t/data=!3m8!1e2!3m6!1sCIABIhAGbwPTfgw2VGepx2YACxiX!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgrass-cs%2FAABkmLeNBBYfztipvKmjjnc3FsqrPSQTgKSP86KXEM76D2fQ7Vi2duSXp77VvdRb3HXU1sAbmgr3dp_uzYiC1O4YV_p1GQgFBwuzew_77HFUEWQTeazMOpiPZbUHmnYsE8HH47iNQh0mYDHCUyBt%3Dw114-h86-k-no!7i4096!8i3072!4m7!3m6!1s0x3bcb857941c6016b:0xe15546a2eeb3dcf!8m2!3d17.5686875!4d78.5119375!10e5!16s%2Fg%2F11srys2kdj?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D"
+                    href="https://www.google.com/maps/search/?api=1&query=MSR+Convention+Garden+Hyderabad"
                     target="_blank" rel="noopener noreferrer">
                     VIEW LOCATION ↗
                 </a>
@@ -948,7 +1008,7 @@
                 </p>
 
                 <a class="gold-button"
-                    href="https://www.google.com/maps/place/Jenvi+Conventions/@17.5632982,78.5279359,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb85c2f6b52e09:0xdb8b38cf44c7cf3c!8m2!3d17.5632931!4d78.5305108!16s%2Fg%2F11r_v6lgs_?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D"
+                    href="https://www.google.com/maps/search/?api=1&query=Jenvi+Conventions+Hyderabad"
                     target="_blank" rel="noopener noreferrer">
                     VIEW LOCATION ↗
                 </a>
@@ -1014,11 +1074,109 @@
 
     <!-- Put your JavaScript here -->
     <script>
+        function createRosePetals(button) {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                return;
+            }
+
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const rect = button.getBoundingClientRect();
+
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const colors = [
+                ["#f8b8c6", "#df718b", "#a93652"],
+                ["#ffe0e5", "#ed9cac", "#c64f70"],
+                ["#f5d0a5", "#dca66c", "#a96c43"],
+                ["#e9a0b0", "#bd506c", "#78283e"],
+                ["#fff0e5", "#edc5bd", "#c88987"]
+            ];
+
+            const petalCount = 65;
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement("span");
+                petal.className = "rose-petal";
+
+                const palette = colors[
+                    Math.floor(Math.random() * colors.length)
+                ];
+
+                petal.style.setProperty("--petal-light", palette[0]);
+                petal.style.setProperty("--petal-color", palette[1]);
+                petal.style.setProperty("--petal-dark", palette[2]);
+
+                petal.style.setProperty(
+                    "--petal-width",
+                    `${8 + Math.random() * 12}px`
+                );
+
+                petal.style.setProperty(
+                    "--petal-height",
+                    `${14 + Math.random() * 18}px`
+                );
+
+                // Spread starting positions across the whole screen.
+                // Some begin at the button; most are distributed everywhere.
+                let startX;
+                let startY;
+
+                if (Math.random() < 0.3) {
+                    startX = centerX;
+                    startY = centerY;
+                } else {
+                    startX = Math.random() * width;
+                    startY = Math.random() * height;
+                }
+
+                petal.style.left = `${startX}px`;
+                petal.style.top = `${startY}px`;
+
+                // Travel in ANY direction, including upward and sideways.
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 100 + Math.random() * Math.max(width, height) * 0.9;
+
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance;
+
+                // Override the existing animation's movement variables.
+                petal.style.setProperty("--drift", `${dx}px`);
+                petal.style.setProperty("--fall-distance", `${dy}px`);
+
+                petal.style.setProperty(
+                    "--rotation",
+                    `${Math.random() * 1080 - 540}deg`
+                );
+
+                petal.style.setProperty(
+                    "--fall-duration",
+                    `${2.5 + Math.random() * 3}s`
+                );
+
+                petal.style.setProperty(
+                    "--fall-delay",
+                    `${Math.random() * 0.7}s`
+                );
+
+                document.body.appendChild(petal);
+
+                petal.addEventListener("animationend", () => {
+                    petal.remove();
+                }, {once: true});
+            }
+        }
+
         // Open invitation
         const openButton = document.getElementById("openInvitation");
         const invitation = document.getElementById("invitation");
 
         openButton.addEventListener("click", () => {
+            // Add sparkles when clicked
+            //createSparkles(openButton);
+            createRosePetals(openButton);
+
             invitation.classList.add("visible");
 
             invitation.querySelectorAll(".reveal").forEach(section => {

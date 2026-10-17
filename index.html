@@ -371,7 +371,7 @@
         .couple-description h3 {
             font-family: "Allura", cursive !important;
             font-size: 3rem;
-            font-weight: 400;
+            font-weight: 300;
             margin: 0 0 8px;
         }
 
@@ -911,7 +911,7 @@
             background-image:
                 linear-gradient(rgba(255, 250, 241, 0.72),
                     rgba(255, 250, 241, 0.72)),
-                url("invite-background2.jpg");
+                url("invite-background3.jpg");
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -1293,10 +1293,10 @@
                 const startX = Math.random() * width;
                 const startY = Math.random() * height;
                 const drift = (Math.random() - 0.5) * width;
-                const fall = 200 + Math.random() * height;
+                const fall = height + 150 + Math.random() * 300;
                 const rotation = Math.random() * 720 - 360;
-                const duration = 2500 + Math.random() * 2500;
-                const delay = Math.random() * 350;
+                const duration = 6000 + Math.random() * 4000;
+                const delay = Math.random() * 2000;
 
                 // Use inline styles instead of the old CSS animation.
                 petal.style.position = "fixed";
@@ -1325,7 +1325,11 @@
                             },
                             {
                                 opacity: 0.95,
-                                offset: 0.15
+                                offset: 0.08
+                            },
+                            {
+                                opacity: 0.9,
+                                offset: 0.75
                             },
                             {
                                 opacity: 0,

@@ -186,8 +186,8 @@
             }
 
             .music-button.playing {
-                animation: rotateMusic 4s linear infinite;
-            }
+    animation: rotateMusic 10s linear infinite;
+}
 
             .section {
                 padding: 95px 24px;
@@ -293,15 +293,16 @@
 
             .together-slides {
                 position: relative;
+                width: 100%;
                 overflow: hidden;
                 background: #eadcc7;
+                aspect-ratio: var(--couple-slide-ratio, 4 / 3);
             }
 
             .together-slides img {
                 display: none;
                 width: 100%;
-                height: auto;
-                max-height: none;
+                height: 100%;
                 object-fit: contain;
                 object-position: center;
             }
@@ -851,6 +852,23 @@
         display: block;
     }
 }
+
+/* iOS Safari compatibility for rose petals */
+.rose-petal {
+    position: fixed;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: rosePetalFall
+        var(--fall-duration, 3s)
+        ease-in-out
+        var(--fall-delay, 0s)
+        forwards;
+    animation: rosePetalFall
+        var(--fall-duration, 3s)
+        ease-in-out
+        var(--fall-delay, 0s)
+        forwards;
+}
         </style>
     </head>
 
@@ -939,7 +957,7 @@
                             <p class="script-name">The Groom</p>
                             <h3>Naveen</h3>
                             <p>
-                                Grand S/o. Late Smt. ﹠ Sri Vuddagiri Challalamma - Brahmananda Rao
+                                S/o. Hima Bindu ﹠ Koti Veeraiah Vuddagiri
                             </p>
                         </div>
                     </div>
@@ -956,7 +974,7 @@
                             <p class="script-name">The Bride</p>
                             <h3>Deeksha</h3>
                             <p>
-                                D/o. Smt. Gattu Samatha ﹠ Dr. Gattu Vasanth Rao
+                                D/o. Smt. Samatha ﹠ Dr. Vasanth Rao Gattu
                             </p>
                         </div>
                     </div>
@@ -1431,19 +1449,58 @@
         // Photo-only slideshow for the two couple pictures.
         (function () {
             const slides = document.querySelectorAll(".together-slides img");
+            const slideshow = document.querySelector(".together-slides");
             const dots = document.getElementById("couple-dots");
             const previous = document.getElementById("couple-prev");
             const next = document.getElementById("couple-next");
-            if (!slides.length || !dots || !previous || !next) return;
+            if (!slides.length || !slideshow || !dots || !previous || !next) return;
 
             let current = 0;
+            let slideTimer;
+
+            // Give both photos the same slideshow frame, sized to fit the full
+            // height of the taller photo at the shared width. Never crop either photo.
+            function setSlideshowRatio() {
+                const loadedSlides = Array.from(slides).filter(
+                    slide => slide.naturalWidth > 0 && slide.naturalHeight > 0
+                );
+                if (loadedSlides.length) {
+                    const narrowestRatio = Math.min(
+                        ...loadedSlides.map(slide => slide.naturalWidth / slide.naturalHeight)
+                    );
+                    slideshow.style.setProperty("--couple-slide-ratio", String(narrowestRatio));
+                }
+            }
+
+            slides.forEach(slide => {
+                if (slide.complete && slide.naturalWidth > 0) {
+                    setSlideshowRatio();
+                } else {
+                    slide.addEventListener("load", setSlideshowRatio, { once: true });
+                }
+            });
+
             function showSlide(index) {
                 current = (index + slides.length) % slides.length;
                 slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
                 dots.textContent = current === 0 ? "● ○" : "○ ●";
             }
-            previous.addEventListener("click", () => showSlide(current - 1));
-            next.addEventListener("click", () => showSlide(current + 1));
+
+            function restartAutoSlide() {
+                clearInterval(slideTimer);
+                slideTimer = setInterval(() => showSlide(current + 1), 10000);
+            }
+
+            previous.addEventListener("click", () => {
+                showSlide(current - 1);
+                restartAutoSlide();
+            });
+            next.addEventListener("click", () => {
+                showSlide(current + 1);
+                restartAutoSlide();
+            });
+
+            restartAutoSlide();
         })();
     </script>
 

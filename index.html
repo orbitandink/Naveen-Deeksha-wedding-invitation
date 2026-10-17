@@ -285,9 +285,9 @@
 
 
         .person-photo-card .script-name {
-            margin-top: 0;
-            font-weight: 600;
-            -webkit-text-stroke: 0.3px currentColor;
+            font-size: 2.7rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
         }
 
 
@@ -371,7 +371,7 @@
         .couple-description h3 {
             font-family: "Allura", cursive !important;
             font-size: 3rem;
-            font-weight: 600;
+            font-weight: 400;
             margin: 0 0 8px;
         }
 
@@ -1282,7 +1282,9 @@
                 ["#fff0e5", "#edc5bd", "#c88987"]
             ];
 
-            const count = width <= 700 ? 25 : 45;
+
+            const count = width <= 700 ? 100 : 200;
+
 
             for (let i = 0; i < count; i++) {
                 const petal = document.createElement("span");

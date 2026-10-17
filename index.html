@@ -906,18 +906,31 @@
         }
 
 
-        /* Show the full background image without cropping */
-        #invitation {
-            background-color: #fffaf1;
-            background-image:
-                linear-gradient(rgba(255, 250, 241, 0.25),
-                    rgba(255, 250, 241, 0.25)),
-                url("./invite-background4.jpg");
-            background-position: center top;
-            background-size: 100% auto;
-            background-repeat: repeat-y;
-            background-attachment: scroll;
-        }
+     /* Background image for the invitation */
+#invitation {
+    background-color: #fffaf1;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 250, 241, 0.25),
+            rgba(255, 250, 241, 0.25)
+        ),
+        url("./invite-background4.jpg");
+
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+}
+
+/* Reduce repetition on phones */
+@media (max-width: 700px) {
+    #invitation {
+        background-size: 100% auto;
+        background-repeat: repeat-y;
+        background-position: center top;
+    }
+}
 
         /* Let the background image show through the invitation sections */
         #invitation>section {
@@ -1139,7 +1152,7 @@
 
                     <p class="event-date">22 November 2026</p>
 
-                    <p class="event-time">7:00 PM</p>
+                    <p class="event-time">7:00 PM ONWARDS</p>
 
                     <div class="event-line"></div>
 

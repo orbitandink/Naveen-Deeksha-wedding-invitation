@@ -283,9 +283,13 @@
             text-align: center;
         }
 
+
         .person-photo-card .script-name {
             margin-top: 0;
+            font-weight: 600;
+            -webkit-text-stroke: 0.3px currentColor;
         }
+
 
         .person-photo-card h3 {
             margin: 0 0 8px;
@@ -363,7 +367,14 @@
             font-size: 1.4rem;
         }
 
-        .couple-description h3,
+
+        .couple-description h3 {
+            font-family: "Allura", cursive !important;
+            font-size: 3rem;
+            font-weight: 600;
+            margin: 0 0 8px;
+        }
+
         .event-card h3,
         .venue-card h3 {
             font-family: "Cormorant Garamond", serif;
@@ -371,6 +382,7 @@
             font-weight: 500;
             margin: 0;
         }
+
 
 
         .couple-description p:not(.script-name) {
@@ -833,42 +845,39 @@
             animation: rosePetalFall var(--fall-duration, 3s) ease-in-out var(--fall-delay, 0s) forwards;
         }
 
-       @-webkit-keyframes rosePetalFall {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
-        transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
-    }
+        @-webkit-keyframes rosePetalFall {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
+                transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
+            }
 
-    10% {
-        opacity: .95;
-    }
+            10% {
+                opacity: .95;
+            }
 
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0)
-            rotate(var(--rotation, 360deg)) scale(.8);
-        transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0)
-            rotate(var(--rotation, 360deg)) scale(.8);
-    }
-}
+            100% {
+                opacity: 0;
+                -webkit-transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0) rotate(var(--rotation, 360deg)) scale(.8);
+                transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0) rotate(var(--rotation, 360deg)) scale(.8);
+            }
+        }
 
-@keyframes rosePetalFall {
-    0% {
-        opacity: 0;
-        transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
-    }
+        @keyframes rosePetalFall {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
+            }
 
-    10% {
-        opacity: .95;
-    }
+            10% {
+                opacity: .95;
+            }
 
-    100% {
-        opacity: 0;
-        transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0)
-            rotate(var(--rotation, 360deg)) scale(.8);
-    }
-}
+            100% {
+                opacity: 0;
+                transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0) rotate(var(--rotation, 360deg)) scale(.8);
+            }
+        }
 
         @media (prefers-reduced-motion: reduce) {
             .rose-petal {
@@ -884,6 +893,41 @@
             -webkit-animation: rosePetalFall var(--fall-duration, 3s) ease-in-out var(--fall-delay, 0s) forwards;
             animation: rosePetalFall var(--fall-duration, 3s) ease-in-out var(--fall-delay, 0s) forwards;
         }
+
+
+        /* Use the first-slide font for the couple's names everywhere */
+        .couple-names-font {
+            font-family: "Allura", cursive !important;
+            font-weight: 400;
+        }
+
+        .hero h1 .ampersand {
+            font-family: "Allura", cursive !important;
+        }
+
+
+        /* Background image for all pages after the opening invitation */
+        #invitation {
+            background-image:
+                linear-gradient(rgba(255, 250, 241, 0.72),
+                    rgba(255, 250, 241, 0.72)),
+                url("invite-background2.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Let the background image show through the invitation sections */
+        #invitation>section {
+            background-color: transparent;
+        }
+
+        /* Keep the countdown readable */
+        #invitation>.countdown-section {
+            background-color: rgba(113, 44, 54, 0.88);
+            color: white;
+        }
     </style>
 </head>
 
@@ -891,7 +935,7 @@
 
     <!-- Background Music -->
     <audio id="weddingMusic" loop autoplay preload="auto">
-        <source src="wedding-music.mp3" type="audio/mpeg">
+        <source src="" type="audio/mpeg">
     </audio>
 
     <button class="music-button" id="musicButton" aria-label="Play background music" aria-pressed="false">
@@ -908,7 +952,7 @@
 
             <p class="invite-text">Together with our families</p>
 
-            <h1>
+            <h1 class="couple-names-font">
                 Naveen <span class="ampersand">&amp;</span> Deeksha
             </h1>
 
@@ -947,7 +991,9 @@
                 the most beautiful chapter of our lives.
             </p>
 
-            <p class="script-name">Naveen &amp; Deeksha</p>
+
+            <p class="script-name couple-names-font">Naveen &amp; Deeksha</p>
+
 
         </section>
 
@@ -996,21 +1042,17 @@
 
             </div>
 
-<div class="together-photos">
-    <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
-    <h2>Our Journey Together</h2>
+            <div class="together-photos">
+                <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
+                <h2>Our Journey Together</h2>
 
-    <div class="together-slides">
-        <img
-            src="./couple-2.jpg"
-            alt="Naveen and Deeksha together"
-            onerror="this.style.display='none'"
-            style="display: block; width: 100%; height: 100%; object-fit: contain; object-position: center;"
-        >
-    </div>
+                <div class="together-slides">
+                    <img src="./couple-2.jpg" alt="Naveen and Deeksha together" onerror="this.style.display='none'"
+                        style="display: block; width: 100%; height: 100%; object-fit: contain; object-position: center;">
+                </div>
 
-    <p class="together-caption">Two hearts, one beautiful journey</p>
-</div>
+                <p class="together-caption">Two hearts, one beautiful journey</p>
+            </div>
 
 
         </section>
@@ -1198,8 +1240,8 @@
 
                 <p class="eyebrow">WITH LOVE, ALWAYS</p>
 
-                <h2>Naveen <span>&amp;</span> Deeksha</h2>
 
+                <h2 class="couple-names-font">Naveen <span>&amp;</span> Deeksha</h2>
                 <p>
                     We look forward to celebrating with you.
                 </p>
@@ -1227,84 +1269,84 @@
 
     <!-- Put your JavaScript here -->
     <script>
-        
-function createRosePetals(button) {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
 
-    const colors = [
-        ["#f8b8c6", "#df718b", "#a93652"],
-        ["#ffe0e5", "#ed9cac", "#c64f70"],
-        ["#f5d0a5", "#dca66c", "#a96c43"],
-        ["#e9a0b0", "#bd506c", "#78283e"],
-        ["#fff0e5", "#edc5bd", "#c88987"]
-    ];
+        function createRosePetals(button) {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
 
-    const count = width <= 700 ? 25 : 45;
+            const colors = [
+                ["#f8b8c6", "#df718b", "#a93652"],
+                ["#ffe0e5", "#ed9cac", "#c64f70"],
+                ["#f5d0a5", "#dca66c", "#a96c43"],
+                ["#e9a0b0", "#bd506c", "#78283e"],
+                ["#fff0e5", "#edc5bd", "#c88987"]
+            ];
 
-    for (let i = 0; i < count; i++) {
-        const petal = document.createElement("span");
-        const palette = colors[Math.floor(Math.random() * colors.length)];
+            const count = width <= 700 ? 25 : 45;
 
-        const startX = Math.random() * width;
-        const startY = Math.random() * height;
-        const drift = (Math.random() - 0.5) * width;
-        const fall = 200 + Math.random() * height;
-        const rotation = Math.random() * 720 - 360;
-        const duration = 2500 + Math.random() * 2500;
-        const delay = Math.random() * 350;
+            for (let i = 0; i < count; i++) {
+                const petal = document.createElement("span");
+                const palette = colors[Math.floor(Math.random() * colors.length)];
 
-        // Use inline styles instead of the old CSS animation.
-        petal.style.position = "fixed";
-        petal.style.left = startX + "px";
-        petal.style.top = startY + "px";
-        petal.style.width = (7 + Math.random() * 9) + "px";
-        petal.style.height = (12 + Math.random() * 13) + "px";
-        petal.style.borderRadius = "80% 10% 70% 30%";
-        petal.style.background =
-            `linear-gradient(135deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`;
-        petal.style.boxShadow = "0 2px 5px rgba(72,20,32,.15)";
-        petal.style.pointerEvents = "none";
-        petal.style.zIndex = "99999";
-        petal.style.opacity = "0";
+                const startX = Math.random() * width;
+                const startY = Math.random() * height;
+                const drift = (Math.random() - 0.5) * width;
+                const fall = 200 + Math.random() * height;
+                const rotation = Math.random() * 720 - 360;
+                const duration = 2500 + Math.random() * 2500;
+                const delay = Math.random() * 350;
 
-        // A separate class avoids conflicts with the old .rose-petal CSS.
-        petal.className = "rose-petal-js";
-        document.body.appendChild(petal);
+                // Use inline styles instead of the old CSS animation.
+                petal.style.position = "fixed";
+                petal.style.left = startX + "px";
+                petal.style.top = startY + "px";
+                petal.style.width = (7 + Math.random() * 9) + "px";
+                petal.style.height = (12 + Math.random() * 13) + "px";
+                petal.style.borderRadius = "80% 10% 70% 30%";
+                petal.style.background =
+                    `linear-gradient(135deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`;
+                petal.style.boxShadow = "0 2px 5px rgba(72,20,32,.15)";
+                petal.style.pointerEvents = "none";
+                petal.style.zIndex = "99999";
+                petal.style.opacity = "0";
 
-        if (typeof petal.animate === "function") {
-            const animation = petal.animate(
-                [
-                    {
-                        opacity: 0,
-                        transform: "translate3d(0,0,0) rotate(0deg) scale(.5)"
-                    },
-                    {
-                        opacity: 0.95,
-                        offset: 0.15
-                    },
-                    {
-                        opacity: 0,
-                        transform:
-                            `translate3d(${drift}px,${fall}px,0) rotate(${rotation}deg) scale(.8)`
-                    }
-                ],
-                {
-                    duration: duration,
-                    delay: delay,
-                    easing: "ease-in-out",
-                    fill: "forwards"
+                // A separate class avoids conflicts with the old .rose-petal CSS.
+                petal.className = "rose-petal-js";
+                document.body.appendChild(petal);
+
+                if (typeof petal.animate === "function") {
+                    const animation = petal.animate(
+                        [
+                            {
+                                opacity: 0,
+                                transform: "translate3d(0,0,0) rotate(0deg) scale(.5)"
+                            },
+                            {
+                                opacity: 0.95,
+                                offset: 0.15
+                            },
+                            {
+                                opacity: 0,
+                                transform:
+                                    `translate3d(${drift}px,${fall}px,0) rotate(${rotation}deg) scale(.8)`
+                            }
+                        ],
+                        {
+                            duration: duration,
+                            delay: delay,
+                            easing: "ease-in-out",
+                            fill: "forwards"
+                        }
+                    );
+
+                    animation.onfinish = () => petal.remove();
+                    animation.oncancel = () => petal.remove();
+                } else {
+                    // Graceful fallback for browsers without the Web Animations API.
+                    petal.remove();
                 }
-            );
-
-            animation.onfinish = () => petal.remove();
-            animation.oncancel = () => petal.remove();
-        } else {
-            // Graceful fallback for browsers without the Web Animations API.
-            petal.remove();
+            }
         }
-    }
-}
 
 
         // Open invitation

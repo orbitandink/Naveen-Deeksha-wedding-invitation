@@ -630,17 +630,17 @@
         }
 
         @media (max-width: 700px) {
-    .hero {
-        background-position: 75% center;
-    }
+            .hero {
+                background-position: 75% center;
+            }
 
-    .hero::before {
-        inset: 12px;
-    }
+            .hero::before {
+                inset: 12px;
+            }
 
-    .hero::after {
-        inset: 19px;
-    }
+            .hero::after {
+                inset: 19px;
+            }
 
             .section {
                 padding: 70px 20px;
@@ -833,23 +833,42 @@
             animation: rosePetalFall var(--fall-duration, 3s) ease-in-out var(--fall-delay, 0s) forwards;
         }
 
-        @keyframes rosePetalFall {
-            0% {
-                opacity: 0;
-                transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
-            }
+       @-webkit-keyframes rosePetalFall {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
+    }
 
-            10% {
-                opacity: .95;
-            }
+    10% {
+        opacity: .95;
+    }
 
-            100% {
-                opacity: 0;
-                transform: translate3d(var(--drift, 0px),
-                        var(--fall-distance, 500px),
-                        0) rotate(var(--rotation, 360deg)) scale(.8);
-            }
-        }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0)
+            rotate(var(--rotation, 360deg)) scale(.8);
+        transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0)
+            rotate(var(--rotation, 360deg)) scale(.8);
+    }
+}
+
+@keyframes rosePetalFall {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(.5);
+    }
+
+    10% {
+        opacity: .95;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(var(--drift, 0px), var(--fall-distance, 500px), 0)
+            rotate(var(--rotation, 360deg)) scale(.8);
+    }
+}
 
         @media (prefers-reduced-motion: reduce) {
             .rose-petal {

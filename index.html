@@ -906,29 +906,31 @@
         }
 
 
-        /* Background image for the invitation */
-        #invitation {
-            background-color: #fffaf1;
+     /* Background image for the invitation */
+#invitation {
+    background-color: #fffaf1;
 
-            background-image:
-                linear-gradient(rgba(255, 250, 241, 0.25),
-                    rgba(255, 250, 241, 0.25)),
-                url("./invite-background4.jpg");
+    background-image:
+        linear-gradient(
+            rgba(255, 250, 241, 0.25),
+            rgba(255, 250, 241, 0.25)
+        ),
+        url("./invite-background4.jpg");
 
-            background-position: center top;
-            background-size: 100% auto;
-            background-repeat: repeat-y;
-            background-attachment: scroll;
-        }
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+}
 
-        /* Reduce repetition on phones */
-        @media (max-width: 700px) {
-            #invitation {
-                background-size: 100% auto;
-                background-repeat: repeat-y;
-                background-position: center top;
-            }
-        }
+/* Reduce repetition on phones */
+@media (max-width: 700px) {
+    #invitation {
+        background-size: 100% auto;
+        background-repeat: repeat-y;
+        background-position: center top;
+    }
+}
 
         /* Let the background image show through the invitation sections */
         #invitation>section {
@@ -940,125 +942,6 @@
             background-color: rgba(113, 44, 54, 0.88);
             color: white;
         }
-
-        ```css
-        /* ===== Reduce excess spacing between invitation sections ===== */
-
-        /* General section spacing */
-        #invitation>.section {
-            padding-top: 48px;
-            padding-bottom: 48px;
-        }
-
-        /* Welcome section */
-        #invitation .welcome {
-            padding-top: 45px;
-            padding-bottom: 40px;
-        }
-
-        /* Reduce gaps around section headings */
-        #invitation .section h2 {
-            margin-top: 10px;
-            margin-bottom: 18px;
-        }
-
-        /* Bride and groom cards */
-        #invitation .couple-layout {
-            margin-top: 25px;
-            gap: 24px;
-        }
-
-        /* Couple photo section */
-        #invitation .together-photos {
-            margin-top: 32px;
-        }
-
-        /* Wedding event cards */
-        #invitation .event-grid {
-            margin-top: 25px;
-            gap: 14px;
-        }
-
-        /* Venue cards */
-        #invitation .venue-card {
-            margin-top: 22px;
-            padding: 32px 22px;
-        }
-
-        /* Reduce space between the two venue sections */
-        #invitation>.venue+.venue {
-            padding-top: 20px;
-        }
-
-        /* Closing section */
-        #invitation>.closing {
-            padding: 45px 20px;
-        }
-
-        /* Tighten closing text spacing */
-        #invitation .closing-content h2 {
-            margin: 12px 0;
-        }
-
-        #invitation .closing-content .ornament {
-            margin: 8px 0;
-        }
-
-        /* Keep countdown visually balanced */
-        #invitation .countdown {
-            margin-top: 25px;
-            gap: 12px;
-        }
-
-        /* Mobile spacing */
-        @media (max-width: 700px) {
-            #invitation>.section {
-                padding: 35px 18px;
-            }
-
-            #invitation .welcome {
-                padding-top: 35px;
-                padding-bottom: 30px;
-            }
-
-            #invitation .section h2 {
-                margin-top: 8px;
-                margin-bottom: 14px;
-            }
-
-            #invitation .couple-layout {
-                margin-top: 20px;
-                gap: 20px;
-            }
-
-            #invitation .together-photos {
-                margin-top: 28px;
-            }
-
-            #invitation .event-grid {
-                margin-top: 22px;
-                gap: 12px;
-            }
-
-            #invitation .venue-card {
-                margin-top: 18px;
-                padding: 28px 18px;
-            }
-
-            #invitation>.venue+.venue {
-                padding-top: 15px;
-            }
-
-            #invitation>.closing {
-                padding: 35px 18px;
-            }
-
-            #invitation .countdown {
-                margin-top: 20px;
-                gap: 10px;
-            }
-        }
-
     </style>
 </head>
 

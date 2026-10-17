@@ -906,16 +906,17 @@
         }
 
 
-        /* Background image for all pages after the opening invitation */
+        /* Show the full background image without cropping */
         #invitation {
+            background-color: #fffaf1;
             background-image:
-                linear-gradient(rgba(255, 250, 241, 0.72),
-                    rgba(255, 250, 241, 0.72)),
-                url("invite-background4.jpg");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+                linear-gradient(rgba(255, 250, 241, 0.25),
+                    rgba(255, 250, 241, 0.25)),
+                url("./invite-background4.jpg");
+            background-position: center top;
+            background-size: 100% auto;
+            background-repeat: repeat-y;
+            background-attachment: scroll;
         }
 
         /* Let the background image show through the invitation sections */

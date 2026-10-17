@@ -68,7 +68,7 @@
                         rgba(37, 20, 22, .76),
                         rgba(64, 30, 33, .47),
                         rgba(24, 22, 20, .78)),
-                    url("./invite-cover.jpg") center / cover no-repeat,
+                    url("./gopuram.jpg") center / cover no-repeat,
                     #482d2e;
             }
 
@@ -251,6 +251,92 @@
                 width: 100%;
                 height: 440px;
                 object-fit: cover;
+            }
+
+            /* Photo-only additions: individual portraits and couple slideshow */
+            .person-photo-card {
+                display: grid;
+                grid-template-columns: minmax(130px, .85fr) minmax(0, 1fr);
+                gap: 20px;
+                align-items: center;
+                text-align: left;
+                padding: 18px;
+                background: #f8f2e8;
+                border: 1px solid rgba(194, 160, 100, .45);
+            }
+
+            .person-photo-card .couple-photo {
+                min-height: 260px;
+            }
+
+            .person-photo-card .couple-photo img {
+                height: 300px;
+            }
+
+            .person-photo-card .photo-fallback p {
+                margin: 8px;
+                text-align: center;
+            }
+
+            .person-photo-card .script-name {
+                margin-top: 0;
+            }
+
+            .person-photo-card h3 {
+                margin: 0 0 8px;
+            }
+
+            .together-photos {
+                max-width: 900px;
+                margin: 55px auto 0;
+            }
+
+            .together-slides {
+                position: relative;
+                overflow: hidden;
+                background: #eadcc7;
+            }
+
+            .together-slides img {
+                display: none;
+                width: 100%;
+                height: auto;
+                max-height: none;
+                object-fit: contain;
+                object-position: center;
+            }
+
+            .together-slides img.active {
+                display: block;
+                animation: fadeUp .7s ease both;
+            }
+
+            .together-caption {
+                margin: 14px 0 0;
+                color: var(--muted);
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.3rem;
+            }
+
+            .together-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 18px;
+                margin-top: 14px;
+            }
+
+            .together-controls button {
+                border: 1px solid var(--gold);
+                background: transparent;
+                color: var(--maroon);
+                padding: 7px 16px;
+                cursor: pointer;
+            }
+
+            .together-dots {
+                color: var(--maroon);
+                letter-spacing: .35em;
             }
 
             .photo-fallback {
@@ -553,6 +639,24 @@
                     max-width: 450px;
                 }
 
+                .person-photo-card {
+                    grid-template-columns: minmax(110px, .8fr) minmax(0, 1fr);
+                    gap: 14px;
+                    padding: 12px;
+                }
+
+                .person-photo-card .couple-photo {
+                    min-height: 220px;
+                }
+
+                .person-photo-card .couple-photo img {
+                    height: 240px;
+                }
+
+                .person-photo-card .couple-description p {
+                    font-size: .88rem;
+                }
+
                 .couple-photo img {
                     height: 400px;
                 }
@@ -823,40 +927,55 @@
 
                 <div class="couple-layout">
 
-                    <div class="couple-photo">
-
-                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=85"
-                            alt="Wedding couple" onerror="this.style.display='none'">
-
-                        <div class="photo-fallback">
-                            <span>♥</span>
-                            <p>Our Beautiful Beginning</p>
+                    <div class="person-photo-card">
+                        <div class="couple-photo">
+                            <img src="./groom.jpg" alt="Groom Naveen" onerror="this.style.display='none'">
+                            <div class="photo-fallback">
+                                <span>♥</span>
+                                <p>Groom Photo</p>
+                            </div>
                         </div>
-
+                        <div class="couple-description">
+                            <p class="script-name">The Groom</p>
+                            <h3>Naveen</h3>
+                            <p>
+                                Grand S/o. Late Smt. ﹠ Sri Vuddagiri Challalamma - Brahmananda Rao
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="couple-description">
-
-                        <p class="script-name">The Groom</p>
-
-                        <h3>Naveen</h3>
-
-                        <p>
-                            Grand S/o. Late Smt. ﹠ Sri Vuddagiri Challalamma - Brahmananda Rao
-                        </p>
-
-                        <div class="heart-divider">♡</div>
-
-                        <p class="script-name">The Bride</p>
-
-                        <h3>Deeksha</h3>
-
-                        <p>
-                            D/o. Smt. Gattu Samatha ﹠ Dr. Gattu Vasanth Rao
-                        </p>
-
+                    <div class="person-photo-card">
+                        <div class="couple-photo">
+                            <img src="./bride.jpg" alt="Bride Deeksha" onerror="this.style.display='none'">
+                            <div class="photo-fallback">
+                                <span>♥</span>
+                                <p>Bride Photo</p>
+                            </div>
+                        </div>
+                        <div class="couple-description">
+                            <p class="script-name">The Bride</p>
+                            <h3>Deeksha</h3>
+                            <p>
+                                D/o. Smt. Gattu Samatha ﹠ Dr. Gattu Vasanth Rao
+                            </p>
+                        </div>
                     </div>
 
+                </div>
+
+                <div class="together-photos">
+                    <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
+                    <h2>Our Journey Together</h2>
+                    <div class="together-slides" aria-label="Photos of Naveen and Deeksha together">
+                        <img class="active" src="./couple-1.jpg" alt="Naveen and Deeksha together, photo one" onerror="this.style.display='none'">
+                        <img src="./couple-2.jpg" alt="Naveen and Deeksha together, photo two" onerror="this.style.display='none'">
+                    </div>
+                    <p class="together-caption">Two hearts, one beautiful journey</p>
+                    <div class="together-controls">
+                        <button type="button" id="couple-prev" aria-label="Previous couple photo">‹</button>
+                        <span class="together-dots" id="couple-dots">● ○</span>
+                        <button type="button" id="couple-next" aria-label="Next couple photo">›</button>
+                    </div>
                 </div>
 
             </section>
@@ -1016,7 +1135,7 @@
 
             </section>
 
-            <!-- Photo Gallery -->
+            <!-- Photo Gallery 
             <section class="gallery section reveal">
 
                 <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
@@ -1035,7 +1154,7 @@
 
                 </div>
 
-            </section>
+            </section>-->
 
             <!-- Closing -->
             <section class="closing">
@@ -1307,6 +1426,27 @@
             });
         </script>
 
-    </body>
+    
+    <script>
+        // Photo-only slideshow for the two couple pictures.
+        (function () {
+            const slides = document.querySelectorAll(".together-slides img");
+            const dots = document.getElementById("couple-dots");
+            const previous = document.getElementById("couple-prev");
+            const next = document.getElementById("couple-next");
+            if (!slides.length || !dots || !previous || !next) return;
+
+            let current = 0;
+            function showSlide(index) {
+                current = (index + slides.length) % slides.length;
+                slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+                dots.textContent = current === 0 ? "● ○" : "○ ●";
+            }
+            previous.addEventListener("click", () => showSlide(current - 1));
+            next.addEventListener("click", () => showSlide(current + 1));
+        })();
+    </script>
+
+</body>
 
     </html>

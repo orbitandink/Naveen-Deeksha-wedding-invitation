@@ -907,16 +907,13 @@
 
 
         /* Background image for all pages after the opening invitation */
-        #invitation {
-            background-image:
-                linear-gradient(rgba(255, 250, 241, 0.72),
-                    rgba(255, 250, 241, 0.72)),
-                url("invite-background3.jpg");
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+       #invitation {
+    background-image: url("./invite-background3.jpg");
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+}
 
         /* Let the background image show through the invitation sections */
         #invitation>section {

@@ -996,22 +996,22 @@
 
             </div>
 
-            <div class="together-photos">
-                <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
-                <h2>Our Journey Together</h2>
-                <div class="together-slides" aria-label="Photos of Naveen and Deeksha together">
-                    <img class="active" src="./couple-1.jpg" alt="Naveen and Deeksha together, photo one"
-                        onerror="this.style.display='none'">
-                    <img src="./couple-2.jpg" alt="Naveen and Deeksha together, photo two"
-                        onerror="this.style.display='none'">
-                </div>
-                <p class="together-caption">Two hearts, one beautiful journey</p>
-                <div class="together-controls">
-                    <button type="button" id="couple-prev" aria-label="Previous couple photo">‹</button>
-                    <span class="together-dots" id="couple-dots">● ○</span>
-                    <button type="button" id="couple-next" aria-label="Next couple photo">›</button>
-                </div>
-            </div>
+<div class="together-photos">
+    <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
+    <h2>Our Journey Together</h2>
+
+    <div class="together-slides">
+        <img
+            src="./couple-2.jpg"
+            alt="Naveen and Deeksha together"
+            onerror="this.style.display='none'"
+            style="display: block; width: 100%; height: 100%; object-fit: contain; object-position: center;"
+        >
+    </div>
+
+    <p class="together-caption">Two hearts, one beautiful journey</p>
+</div>
+
 
         </section>
 
@@ -1227,90 +1227,85 @@
 
     <!-- Put your JavaScript here -->
     <script>
-        function createRosePetals(button) {
-            const width = document.documentElement.clientWidth;
-            const height = window.innerHeight;
+        
+function createRosePetals(button) {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-            const rect = button.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
+    const colors = [
+        ["#f8b8c6", "#df718b", "#a93652"],
+        ["#ffe0e5", "#ed9cac", "#c64f70"],
+        ["#f5d0a5", "#dca66c", "#a96c43"],
+        ["#e9a0b0", "#bd506c", "#78283e"],
+        ["#fff0e5", "#edc5bd", "#c88987"]
+    ];
 
-            const colors = [
-                ["#f8b8c6", "#df718b", "#a93652"],
-                ["#ffe0e5", "#ed9cac", "#c64f70"],
-                ["#f5d0a5", "#dca66c", "#a96c43"],
-                ["#e9a0b0", "#bd506c", "#78283e"],
-                ["#fff0e5", "#edc5bd", "#c88987"]
-            ];
+    const count = width <= 700 ? 25 : 45;
 
-            // Fewer petals on phones for smoother performance.
-            const isMobile = width <= 700;
-            const petalCount = isMobile ? 35 : 65;
+    for (let i = 0; i < count; i++) {
+        const petal = document.createElement("span");
+        const palette = colors[Math.floor(Math.random() * colors.length)];
 
-            for (let i = 0; i < petalCount; i++) {
-                const petal = document.createElement("span");
-                petal.className = "rose-petal";
+        const startX = Math.random() * width;
+        const startY = Math.random() * height;
+        const drift = (Math.random() - 0.5) * width;
+        const fall = 200 + Math.random() * height;
+        const rotation = Math.random() * 720 - 360;
+        const duration = 2500 + Math.random() * 2500;
+        const delay = Math.random() * 350;
 
-                const palette =
-                    colors[Math.floor(Math.random() * colors.length)];
+        // Use inline styles instead of the old CSS animation.
+        petal.style.position = "fixed";
+        petal.style.left = startX + "px";
+        petal.style.top = startY + "px";
+        petal.style.width = (7 + Math.random() * 9) + "px";
+        petal.style.height = (12 + Math.random() * 13) + "px";
+        petal.style.borderRadius = "80% 10% 70% 30%";
+        petal.style.background =
+            `linear-gradient(135deg, ${palette[0]}, ${palette[1]} 55%, ${palette[2]})`;
+        petal.style.boxShadow = "0 2px 5px rgba(72,20,32,.15)";
+        petal.style.pointerEvents = "none";
+        petal.style.zIndex = "99999";
+        petal.style.opacity = "0";
 
-                petal.style.setProperty("--petal-light", palette[0]);
-                petal.style.setProperty("--petal-color", palette[1]);
-                petal.style.setProperty("--petal-dark", palette[2]);
+        // A separate class avoids conflicts with the old .rose-petal CSS.
+        petal.className = "rose-petal-js";
+        document.body.appendChild(petal);
 
-                petal.style.setProperty(
-                    "--petal-width",
-                    `${7 + Math.random() * 9}px`
-                );
+        if (typeof petal.animate === "function") {
+            const animation = petal.animate(
+                [
+                    {
+                        opacity: 0,
+                        transform: "translate3d(0,0,0) rotate(0deg) scale(.5)"
+                    },
+                    {
+                        opacity: 0.95,
+                        offset: 0.15
+                    },
+                    {
+                        opacity: 0,
+                        transform:
+                            `translate3d(${drift}px,${fall}px,0) rotate(${rotation}deg) scale(.8)`
+                    }
+                ],
+                {
+                    duration: duration,
+                    delay: delay,
+                    easing: "ease-in-out",
+                    fill: "forwards"
+                }
+            );
 
-                petal.style.setProperty(
-                    "--petal-height",
-                    `${12 + Math.random() * 13}px`
-                );
-
-                // Start petals across the visible screen.
-                const startX = Math.random() * width;
-                const startY = Math.random() * height;
-
-                petal.style.left = `${startX}px`;
-                petal.style.top = `${startY}px`;
-
-                // Scatter petals in every direction.
-                const angle = Math.random() * Math.PI * 2;
-                const distance = 100 + Math.random() * Math.max(width, height) * 0.7;
-
-                petal.style.setProperty(
-                    "--drift",
-                    `${Math.cos(angle) * distance}px`
-                );
-
-                petal.style.setProperty(
-                    "--fall-distance",
-                    `${Math.sin(angle) * distance}px`
-                );
-
-                petal.style.setProperty(
-                    "--rotation",
-                    `${Math.random() * 720 - 360}deg`
-                );
-
-                petal.style.setProperty(
-                    "--fall-duration",
-                    `${2.5 + Math.random() * 2.5}s`
-                );
-
-                petal.style.setProperty(
-                    "--fall-delay",
-                    `${Math.random() * 0.4}s`
-                );
-
-                document.body.appendChild(petal);
-
-                petal.addEventListener("animationend", () => {
-                    petal.remove();
-                }, {once: true});
-            }
+            animation.onfinish = () => petal.remove();
+            animation.oncancel = () => petal.remove();
+        } else {
+            // Graceful fallback for browsers without the Web Animations API.
+            petal.remove();
         }
+    }
+}
+
 
         // Open invitation
         const openButton = document.getElementById("openInvitation");

@@ -907,29 +907,28 @@
         }
 
 
-     /* Background image for the invitation */
+     /* Keep the invitation background proportional and clear on desktop and mobile */
 #invitation {
     background-color: #fffaf1;
-
     background-image:
         linear-gradient(
-            rgba(255, 250, 241, 0.25),
-            rgba(255, 250, 241, 0.25)
+            rgba(255, 250, 241, 0.18),
+            rgba(255, 250, 241, 0.18)
         ),
         url("./invite-background4.jpg");
-
-    background-position: center top;
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-/* Reduce repetition on phones */
+/* Mobile browsers handle fixed backgrounds inconsistently; keep the image proportional */
 @media (max-width: 700px) {
     #invitation {
-        background-size: 100% auto;
-        background-repeat: repeat-y;
         background-position: center top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
     }
 }
 
@@ -1184,8 +1183,8 @@
         }
 
         /* Reduce only the gap between the wedding and reception venue sections */
-        #invitation > .venue:first-of-type { padding-bottom: 24px; }
-        #invitation > .venue + .venue { padding-top: 24px; }
+        #invitation > .venue-wedding { padding-bottom: 18px; }
+        #invitation > .venue-wedding + .venue { padding-top: 18px; }
 
         /* Make small section headings more visible without changing their wording */
         #invitation .eyebrow {
@@ -1426,7 +1425,7 @@
         </section>
 
         <!-- Wedding Venue -->
-        <section class="venue section reveal">
+        <section class="venue venue-wedding section reveal">
 
             <p class="eyebrow">WHERE OUR STORY CONTINUES</p>
 

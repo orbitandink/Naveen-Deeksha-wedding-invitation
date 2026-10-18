@@ -941,7 +941,6 @@
             color: white;
         }
 
-        ```css
         /* ===== Reduce excess spacing between invitation sections ===== */
 
         /* General section spacing */
@@ -1059,321 +1058,680 @@
             }
         }
 
-/* ===== Elegant Welcome Invitation Card ===== */
+        /* ===== Elegant Welcome Invitation Card ===== */
 
-#invitation .welcome {
-    position: relative;
-    max-width: 760px;
-    width: calc(100% - 40px);
-    margin: 48px auto;
-    padding: 55px 45px;
-    overflow: hidden;
+        #invitation .welcome {
+            position: relative;
+            max-width: 760px;
+            width: calc(100% - 40px);
+            margin: 48px auto;
+            padding: 55px 45px;
+            overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at top left,
-            rgba(194, 160, 100, 0.12),
-            transparent 40%
-        ),
-        linear-gradient(145deg, #fffdf8, #f8f0e4);
+            background:
+                radial-gradient(circle at top left,
+                    rgba(194, 160, 100, 0.12),
+                    transparent 40%),
+                linear-gradient(145deg, #fffdf8, #f8f0e4);
 
-    border: 1px solid rgba(194, 160, 100, 0.75);
-    border-radius: 4px;
+            border: 1px solid rgba(194, 160, 100, 0.75);
+            border-radius: 4px;
 
-    box-shadow:
-        0 12px 35px rgba(75, 43, 36, 0.09),
-        inset 0 0 0 6px rgba(194, 160, 100, 0.07);
+            box-shadow:
+                0 12px 35px rgba(75, 43, 36, 0.09),
+                inset 0 0 0 6px rgba(194, 160, 100, 0.07);
 
-    text-align: center;
-}
-
-/* Delicate inner gold frame */
-#invitation .welcome::before {
-    content: "";
-    position: absolute;
-    inset: 10px;
-    border: 1px solid rgba(194, 160, 100, 0.35);
-    pointer-events: none;
-}
-
-/* Keep the text above the decorative frame */
-#invitation .welcome > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* Small decorative heart */
-#invitation .welcome .dark-ornament {
-    font-size: 1.8rem;
-    line-height: 1;
-    margin: 20px 0;
-    color: var(--gold);
-}
-
-#invitation .welcome .dark-ornament::after {
-    content: "♡";
-}
-
-/* Elegant welcome heading */
-#invitation .welcome h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    line-height: 1.15;
-    font-weight: 500;
-    color: var(--maroon);
-    margin: 18px 0 22px;
-}
-
-/* Comfortable paragraph spacing */
-#invitation .welcome .body-copy {
-    max-width: 480px;
-    margin: 0 auto;
-    font-size: 0.9rem;
-    line-height: 1.9;
-    color: #78685d;
-}
-
-/* Couple's names */
-#invitation .welcome .script-name {
-    font-size: clamp(2.3rem, 6vw, 3.2rem);
-    margin-top: 24px;
-    color: var(--maroon);
-}
-
-/* Mobile layout */
-@media (max-width: 700px) {
-    #invitation .welcome {
-        width: calc(100% - 28px);
-        margin: 24px auto;
-        padding: 38px 24px;
-    }
-
-    #invitation .welcome::before {
-        inset: 7px;
-    }
-
-    #invitation .welcome .eyebrow {
-        font-size: 0.62rem;
-        letter-spacing: 0.15em;
-        line-height: 1.8;
-    }
-
-    #invitation .welcome .dark-ornament {
-        margin: 16px 0;
-    }
-
-    #invitation .welcome h2 {
-        font-size: clamp(2rem, 8.5vw, 2.7rem);
-        line-height: 1.18;
-        margin: 14px 0 18px;
-    }
-
-    #invitation .welcome .body-copy {
-        font-size: 0.82rem;
-        line-height: 1.85;
-    }
-
-    #invitation .welcome .script-name {
-        font-size: 2.5rem;
-        margin-top: 20px;
-    }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: no-preference) {
-    #invitation .welcome.show {
-        animation: welcomeCardReveal 0.9s ease both;
-    }
-
-    @keyframes welcomeCardReveal {
-        from {
-            opacity: 0;
-            transform: translateY(22px);
+            text-align: center;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        /* Delicate inner gold frame */
+        #invitation .welcome::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(194, 160, 100, 0.35);
+            pointer-events: none;
         }
-    }
-}
 
-/* ===== LUXURY GOLD WEDDING FRAME ===== */
+        /* Keep the text above the decorative frame */
+        #invitation .welcome>* {
+            position: relative;
+            z-index: 1;
+        }
 
-/* ===== ELEGANT WEDDING FRAME — OUR JOURNEY TOGETHER ===== */
+        /* Small decorative heart */
+        #invitation .welcome .dark-ornament {
+            font-size: 1.8rem;
+            line-height: 1;
+            margin: 20px 0;
+            color: var(--gold);
+        }
 
-#invitation .together-photos {
-    position: relative;
-    max-width: 940px;
-    width: calc(100% - 36px);
-    margin: 55px auto 40px;
-    padding: 38px 30px 30px;
-    text-align: center;
-    background: linear-gradient(145deg, #fffdf8, #f7ecd9, #fffaf1);
-    border: 2px solid #c9a34e;
-    outline: 1px solid #8f6825;
-    outline-offset: 4px;
-    box-shadow:
-        inset 0 0 0 6px rgba(201, 163, 78, 0.09),
-        0 12px 30px rgba(83, 48, 30, 0.12);
-}
+        #invitation .welcome .dark-ornament::after {
+            content: "♡";
+        }
 
-/* Fine inner gold border */
-#invitation .together-photos::before {
-    content: "";
-    position: absolute;
-    inset: 10px;
-    border: 1px solid rgba(194, 160, 100, 0.55);
-    pointer-events: none;
-}
+        /* Elegant welcome heading */
+        #invitation .welcome h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            line-height: 1.15;
+            font-weight: 500;
+            color: var(--maroon);
+            margin: 18px 0 22px;
+        }
 
-/* Decorative hearts above the frame */
-#invitation .together-photos::after {
-    content: "♥  ♡  ♥";
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2px 16px;
-    white-space: nowrap;
-    color: #712c36;
-    background: #fffaf1;
-    border: 1px solid #c9a34e;
-    font-size: 16px;
-    letter-spacing: 4px;
-}
+        /* Comfortable paragraph spacing */
+        #invitation .welcome .body-copy {
+            max-width: 480px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: #78685d;
+        }
 
-#invitation .together-photos .eyebrow,
-#invitation .together-photos h2,
-#invitation .together-slides,
-#invitation .together-caption {
-    position: relative;
-    z-index: 1;
-}
+        /* Couple's names */
+        #invitation .welcome .script-name {
+            font-size: clamp(2.3rem, 6vw, 3.2rem);
+            margin-top: 24px;
+            color: var(--maroon);
+        }
 
-#invitation .together-photos .eyebrow {
-    margin: 0 0 8px;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    color: #9a793c;
-}
+        /* Mobile layout */
+        @media (max-width: 700px) {
+            #invitation .welcome {
+                width: calc(100% - 28px);
+                margin: 24px auto;
+                padding: 38px 24px;
+            }
 
-#invitation .together-photos h2 {
-    color: #712c36;
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-    margin: 8px 0 25px;
-}
+            #invitation .welcome::before {
+                inset: 7px;
+            }
 
-/* Decorative hearts — consistent antique gold on all devices */
-#invitation .together-photos::after {
-    content: "♥  ♡  ♥";
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2px 16px;
-    white-space: nowrap;
-    color: #c2a064;
-    background: #fffaf1;
-    border: 1px solid #c9a34e;
-    font-size: 16px;
-    letter-spacing: 4px;
-    line-height: 1.4;
-    box-sizing: border-box;
-}
+            #invitation .welcome .eyebrow {
+                font-size: 0.62rem;
+                letter-spacing: 0.15em;
+                line-height: 1.8;
+            }
 
-/* Keep the same look on mobile */
-@media (max-width: 600px) {
-    #invitation .together-photos::after {
-        top: -16px;
-        padding: 2px 12px;
-        font-size: 14px;
-        letter-spacing: 3px;
-    }
-}
+            #invitation .welcome .dark-ornament {
+                margin: 16px 0;
+            }
 
-#invitation .together-slides img {
-    display: none;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
+            #invitation .welcome h2 {
+                font-size: clamp(2rem, 8.5vw, 2.7rem);
+                line-height: 1.18;
+                margin: 14px 0 18px;
+            }
 
-#invitation .together-slides img.active {
-    display: block;
-    animation: fadeUp 0.7s ease both;
-}
+            #invitation .welcome .body-copy {
+                font-size: 0.82rem;
+                line-height: 1.85;
+            }
 
-/* Highlighted "Two hearts, one beautiful journey" */
-#invitation .together-caption {
-    display: table;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin: 27px auto 4px;
-    padding: 10px 22px;
-    color: #712c36;
-    background: #fffaf1;
-    border: 1px solid #c9a34e;
-    outline: 1px solid rgba(143, 104, 37, 0.55);
-    outline-offset: 3px;
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-    line-height: 1.4;
-}
+            #invitation .welcome .script-name {
+                font-size: 2.5rem;
+                margin-top: 20px;
+            }
+        }
 
-#invitation .together-caption::before {
-    content: "♥  ";
-    color: #c2a064;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 0.8em;
-}
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: no-preference) {
+            #invitation .welcome.show {
+                animation: welcomeCardReveal 0.9s ease both;
+            }
 
-#invitation .together-caption::after {
-    content: "  ♥";
-    color: #c2a064;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 0.8em;
-}
+            @keyframes welcomeCardReveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(22px);
+                }
 
-/* Mobile styling */
-@media (max-width: 600px) {
-    #invitation .together-photos {
-        width: calc(100% - 30px);
-        margin: 42px auto 30px;
-        padding: 30px 15px 24px;
-        border-width: 2px;
-        outline-offset: 3px;
-        box-shadow:
-            inset 0 0 0 4px rgba(201, 163, 78, 0.08),
-            0 8px 20px rgba(83, 48, 30, 0.12);
-    }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
 
-    #invitation .together-photos::before {
-        inset: 7px;
-    }
+        /* ===== LUXURY GOLD WEDDING FRAME ===== */
 
-    #invitation .together-photos .eyebrow {
-        font-size: 0.59rem;
-        letter-spacing: 0.13em;
-    }
+        /* ===== ELEGANT WEDDING FRAME — OUR JOURNEY TOGETHER ===== */
 
-    #invitation .together-photos h2 {
-        font-size: 2rem;
-        margin: 8px 0 20px;
-    }
+        #invitation .together-photos {
+            position: relative;
+            max-width: 940px;
+            width: calc(100% - 36px);
+            margin: 55px auto 40px;
+            padding: 38px 30px 30px;
+            text-align: center;
+            background: linear-gradient(145deg, #fffdf8, #f7ecd9, #fffaf1);
+            border: 2px solid #c9a34e;
+            outline: 1px solid #8f6825;
+            outline-offset: 4px;
+            box-shadow:
+                inset 0 0 0 6px rgba(201, 163, 78, 0.09),
+                0 12px 30px rgba(83, 48, 30, 0.12);
+        }
 
-    #invitation .together-slides {
-        padding: 4px;
-    }
+        /* Fine inner gold border */
+        #invitation .together-photos::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(194, 160, 100, 0.55);
+            pointer-events: none;
+        }
 
-    #invitation .together-caption {
-        margin-top: 22px;
-        padding: 9px 10px;
-        font-size: 1.55rem;
-    }
-}
+        /* Decorative hearts above the frame */
+        #invitation .together-photos::after {
+            content: "♥  ♡  ♥";
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 2px 16px;
+            white-space: nowrap;
+            color: #712c36;
+            background: #fffaf1;
+            border: 1px solid #c9a34e;
+            font-size: 16px;
+            letter-spacing: 4px;
+        }
+
+        #invitation .together-photos .eyebrow,
+        #invitation .together-photos h2,
+        #invitation .together-slides,
+        #invitation .together-caption {
+            position: relative;
+            z-index: 1;
+        }
+
+        #invitation .together-photos .eyebrow {
+            margin: 0 0 8px;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            color: #9a793c;
+        }
+
+        #invitation .together-photos h2 {
+            color: #712c36;
+            font-family: "Cormorant Garamond", serif;
+            font-weight: 500;
+            margin: 8px 0 25px;
+        }
+
+        /* Decorative hearts — consistent antique gold on all devices */
+        #invitation .together-photos::after {
+            content: "♥  ♡  ♥";
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 2px 16px;
+            white-space: nowrap;
+            color: #c2a064;
+            background: #fffaf1;
+            border: 1px solid #c9a34e;
+            font-size: 16px;
+            letter-spacing: 4px;
+            line-height: 1.4;
+            box-sizing: border-box;
+        }
+
+        /* Keep the same look on mobile */
+        @media (max-width: 600px) {
+            #invitation .together-photos::after {
+                top: -16px;
+                padding: 2px 12px;
+                font-size: 14px;
+                letter-spacing: 3px;
+            }
+        }
+
+        #invitation .together-slides img {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        #invitation .together-slides img.active {
+            display: block;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        /* Highlighted "Two hearts, one beautiful journey" */
+        #invitation .together-caption {
+            display: table;
+            max-width: 100%;
+            box-sizing: border-box;
+            margin: 27px auto 4px;
+            padding: 10px 22px;
+            color: #712c36;
+            background: #fffaf1;
+            border: 1px solid #c9a34e;
+            outline: 1px solid rgba(143, 104, 37, 0.55);
+            outline-offset: 3px;
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+            line-height: 1.4;
+        }
+
+        #invitation .together-caption::before {
+            content: "♥  ";
+            color: #c2a064;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.8em;
+        }
+
+        #invitation .together-caption::after {
+            content: "  ♥";
+            color: #c2a064;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 0.8em;
+        }
+
+        /* Mobile styling */
+        @media (max-width: 600px) {
+            #invitation .together-photos {
+                width: calc(100% - 30px);
+                margin: 42px auto 30px;
+                padding: 30px 15px 24px;
+                border-width: 2px;
+                outline-offset: 3px;
+                box-shadow:
+                    inset 0 0 0 4px rgba(201, 163, 78, 0.08),
+                    0 8px 20px rgba(83, 48, 30, 0.12);
+            }
+
+            #invitation .together-photos::before {
+                inset: 7px;
+            }
+
+            #invitation .together-photos .eyebrow {
+                font-size: 0.59rem;
+                letter-spacing: 0.13em;
+            }
+
+            #invitation .together-photos h2 {
+                font-size: 2rem;
+                margin: 8px 0 20px;
+            }
+
+            #invitation .together-slides {
+                padding: 4px;
+            }
+
+            #invitation .together-caption {
+                margin-top: 22px;
+                padding: 9px 10px;
+                font-size: 1.55rem;
+            }
+        }
+
+        /* ===== MATCHING LUXURY GOLD FRAME — BRIDE & GROOM ===== */
+
+        #invitation .person-photo-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(110px, 0.85fr) minmax(0, 1fr);
+            gap: 18px;
+            align-items: center;
+
+            padding: 28px 18px 20px;
+            background: linear-gradient(145deg, #fffdf8, #f7ecd9, #fffaf1);
+
+            border: 2px solid #c9a34e;
+            outline: 1px solid #8f6825;
+            outline-offset: 3px;
+
+            box-shadow:
+                inset 0 0 0 6px rgba(201, 163, 78, 0.09),
+                0 12px 30px rgba(83, 48, 30, 0.12);
+
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Fine inner gold frame */
+        #invitation .person-photo-card::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(194, 160, 100, 0.55);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Decorative hearts above each card */
+        #invitation .person-photo-card::after {
+            content: "♥  ♡  ♥";
+            position: absolute;
+            top: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 2px 12px;
+            white-space: nowrap;
+
+            color: #c2a064;
+            background: #fffaf1;
+            border: 1px solid #c9a34e;
+
+            font-size: 15px;
+            letter-spacing: 3px;
+            line-height: 1.4;
+            z-index: 2;
+        }
+
+        /* Keep the photo and personal details above the inner frame */
+        #invitation .person-photo-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Elegant photo presentation */
+        #invitation .person-photo-card .couple-photo {
+            min-height: 260px;
+            background: #eadcc7;
+            border: 1px solid rgba(194, 160, 100, 0.65);
+        }
+
+        #invitation .person-photo-card .couple-photo img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Refined text styling */
+        #invitation .person-photo-card .script-name {
+            margin: 8px 0 4px;
+            color: #712c36;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            line-height: 1.2;
+            white-space: normal;
+        }
+
+        #invitation .person-photo-card .couple-description h3 {
+            margin: 4px 0 10px;
+            color: #712c36;
+            font-family: "Allura", cursive !important;
+            font-size: clamp(2.3rem, 4vw, 3rem);
+            line-height: 1.15;
+        }
+
+        #invitation .person-photo-card .couple-description p:not(.script-name) {
+            margin: 8px 0 0;
+            color: #78685d;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+
+        /* Gentle hover effect on desktop */
+        @media (hover: hover) and (pointer: fine) {
+            #invitation .person-photo-card:hover {
+                transform: translateY(-4px);
+                box-shadow:
+                    inset 0 0 0 6px rgba(201, 163, 78, 0.11),
+                    0 16px 35px rgba(83, 48, 30, 0.16);
+            }
+        }
+
+        /* Mobile styling */
+        @media (max-width: 700px) {
+            #invitation .person-photo-card {
+                grid-template-columns: minmax(95px, 0.8fr) minmax(0, 1fr);
+                gap: 12px;
+                padding: 24px 12px 16px;
+                border-width: 2px;
+                outline-offset: 3px;
+
+                box-shadow:
+                    inset 0 0 0 4px rgba(201, 163, 78, 0.08),
+                    0 8px 20px rgba(83, 48, 30, 0.12);
+            }
+
+            #invitation .person-photo-card::before {
+                inset: 6px;
+            }
+
+            #invitation .person-photo-card::after {
+                top: -15px;
+                padding: 2px 10px;
+                font-size: 13px;
+                letter-spacing: 2px;
+            }
+
+            #invitation .person-photo-card .couple-photo {
+                min-height: 200px;
+            }
+
+            #invitation .person-photo-card .couple-photo img {
+                height: 220px;
+            }
+
+            #invitation .person-photo-card .script-name {
+                font-size: clamp(1.55rem, 6vw, 2rem);
+                letter-spacing: 0;
+            }
+
+            #invitation .person-photo-card .couple-description h3 {
+                font-size: clamp(2rem, 7vw, 2.5rem);
+            }
+
+            #invitation .person-photo-card .couple-description p:not(.script-name) {
+                font-size: 0.73rem;
+                line-height: 1.65;
+            }
+        }
+
+        /* Extra-small phones */
+        @media (max-width: 360px) {
+            #invitation .person-photo-card {
+                grid-template-columns: minmax(85px, 0.75fr) minmax(0, 1fr);
+                gap: 10px;
+                padding: 22px 10px 14px;
+            }
+
+            #invitation .person-photo-card .couple-photo img {
+                height: 190px;
+            }
+
+            #invitation .person-photo-card .script-name {
+                font-size: 1.45rem;
+            }
+
+            #invitation .person-photo-card .couple-description h3 {
+                font-size: 1.9rem;
+            }
+        }
+
+
+        /* ===== MATCHING GOLDEN FRAME EFFECT FOR ALL CARDS ===== */
+
+        /* Wedding event cards and venue cards */
+        #invitation .event-card,
+        #invitation .venue-card {
+            position: relative;
+            background: linear-gradient(145deg,
+                    #fffdf8,
+                    #f7ecd9,
+                    #fffaf1);
+
+            border: 2px solid #c9a34e;
+            outline: 1px solid #8f6825;
+            outline-offset: 3px;
+
+            box-shadow:
+                inset 0 0 0 5px rgba(201, 163, 78, 0.08),
+                0 10px 25px rgba(83, 48, 30, 0.10);
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Delicate inner gold border */
+        #invitation .event-card::before,
+        #invitation .venue-card::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(194, 160, 100, 0.55);
+            pointer-events: none;
+        }
+
+        /* Decorative hearts above each card */
+        #invitation .event-card::after,
+        #invitation .venue-card::after {
+            content: "♥  ♡  ♥";
+            position: absolute;
+            top: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 2px 12px;
+            white-space: nowrap;
+
+            color: #c2a064;
+            background: #fffaf1;
+            border: 1px solid #c9a34e;
+
+            font-size: 14px;
+            letter-spacing: 3px;
+            line-height: 1.4;
+        }
+
+        /* Keep card content above the decorative inner border */
+        #invitation .event-card>*,
+        #invitation .venue-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Consistent gold styling for event icons */
+        #invitation .event-card .event-icon,
+        #invitation .venue-card .venue-decoration {
+            color: #c2a064;
+        }
+
+        /* Subtle hover effect on desktop */
+        @media (hover: hover) and (pointer: fine) {
+
+            #invitation .event-card:hover,
+            #invitation .venue-card:hover {
+                transform: translateY(-4px);
+                box-shadow:
+                    inset 0 0 0 5px rgba(201, 163, 78, 0.10),
+                    0 15px 32px rgba(83, 48, 30, 0.15);
+            }
+        }
+
+        /* Responsive gold frames for phones */
+        @media (max-width: 700px) {
+
+            #invitation .event-card,
+            #invitation .venue-card {
+                border-width: 2px;
+                outline-offset: 3px;
+
+                box-shadow:
+                    inset 0 0 0 4px rgba(201, 163, 78, 0.08),
+                    0 8px 20px rgba(83, 48, 30, 0.10);
+            }
+
+            #invitation .event-card::before,
+            #invitation .venue-card::before {
+                inset: 6px;
+            }
+
+            #invitation .event-card::after,
+            #invitation .venue-card::after {
+                top: -15px;
+                padding: 2px 10px;
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Gold border for With Love and Happiness section */
+        #invitation .closing-section {
+            border: 1px solid #c9a34e !important;
+        }
+
+
+        /* ===== MATCHING GOLD FRAME — WITH LOVE AND HAPPINESS ===== */
+
+        #invitation .welcome {
+            position: relative;
+            background: #ffffff !important;
+            border: 2px solid #c9a34e;
+            outline: 1px solid #8f6825;
+            outline-offset: 4px;
+            box-shadow:
+                inset 0 0 0 6px rgba(201, 163, 78, 0.09),
+                0 12px 30px rgba(83, 48, 30, 0.12);
+        }
+
+        /* Fine inner gold border */
+        #invitation .welcome::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(194, 160, 100, 0.55);
+            pointer-events: none;
+        }
+
+        /* Keep existing text and decoration above the border */
+        #invitation .welcome>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gold decorative hearts above the card */
+        #invitation .welcome::after {
+            content: "♥  ♡  ♥";
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 2px 16px;
+            white-space: nowrap;
+            color: #c2a064;
+            background: #ffffff;
+            border: 1px solid #c9a34e;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 16px;
+            letter-spacing: 4px;
+            line-height: 1.4;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            #invitation .welcome {
+                outline-offset: 3px;
+                box-shadow:
+                    inset 0 0 0 4px rgba(201, 163, 78, 0.08),
+                    0 8px 20px rgba(83, 48, 30, 0.12);
+            }
+
+            #invitation .welcome::before {
+                inset: 7px;
+            }
+
+            #invitation .welcome::after {
+                top: -16px;
+                padding: 2px 12px;
+                font-size: 14px;
+                letter-spacing: 3px;
+            }
+        }
     </style>
 </head>
 

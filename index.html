@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,13 +9,10 @@
     <title>Wedding Invitation</title>
 
     <!-- Google Fonts -->
-
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Allura&family=Montserrat:wght@300;400;500&display=swap"
         rel="stylesheet">
 
-
-    <!-- Your CSS -->
     <style>
         :root {
             --cream: #f8f2e8;
@@ -111,8 +109,6 @@
             margin: 22px 0;
             text-transform: capitalize;
         }
-
-
 
         .ampersand {
             color: var(--gold);
@@ -283,13 +279,11 @@
             text-align: center;
         }
 
-
         .person-photo-card .script-name {
             font-size: 2.7rem;
             letter-spacing: 2px;
             white-space: nowrap;
         }
-
 
         .person-photo-card h3 {
             margin: 0 0 8px;
@@ -367,7 +361,6 @@
             font-size: 1.4rem;
         }
 
-
         .couple-description h3 {
             font-family: "Allura", cursive !important;
             font-size: 3rem;
@@ -382,8 +375,6 @@
             font-weight: 500;
             margin: 0;
         }
-
-
 
         .couple-description p:not(.script-name) {
             color: var(--muted);
@@ -447,7 +438,6 @@
             letter-spacing: .08em;
         }
 
-
         .event-grid {
             display: flex;
             flex-wrap: wrap;
@@ -457,7 +447,6 @@
             max-width: 900px;
             margin: 45px auto 0;
         }
-
 
         .event-card {
             flex: 0 1 350px;
@@ -716,7 +705,6 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-
             *,
             *::before,
             *::after {
@@ -726,7 +714,8 @@
             }
         }
 
-        * Closing Section */ .closing {
+        /* Closing Section */
+        .closing {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -824,24 +813,17 @@
             z-index: 99999;
             top: 0;
             left: 0;
-
             width: var(--petal-width, 12px);
             height: var(--petal-height, 20px);
-
             pointer-events: none;
             opacity: 0;
-
             border-radius: 80% 10% 70% 30%;
-
             background: linear-gradient(135deg,
                     var(--petal-light),
                     var(--petal-color) 55%,
                     var(--petal-dark));
-
             box-shadow: 0 2px 5px rgba(72, 20, 32, 0.15);
-
             will-change: transform, opacity;
-
             animation: rosePetalFall var(--fall-duration, 3s) ease-in-out var(--fall-delay, 0s) forwards;
         }
 
@@ -894,7 +876,6 @@
             animation: rosePetalFall var(--fall-duration, 3s) ease-in-out var(--fall-delay, 0s) forwards;
         }
 
-
         /* Use the first-slide font for the couple's names everywhere */
         .couple-names-font {
             font-family: "Allura", cursive !important;
@@ -905,16 +886,13 @@
             font-family: "Allura", cursive !important;
         }
 
-
         /* Background image for the invitation */
         #invitation {
             background-color: #fffaf1;
-
             background-image:
                 linear-gradient(rgba(255, 250, 241, 0.25),
                     rgba(255, 250, 241, 0.25)),
                 url("./invite-background4.jpg");
-
             background-position: center top;
             background-size: 100% auto;
             background-repeat: repeat-y;
@@ -943,58 +921,48 @@
 
         /* ===== Reduce excess spacing between invitation sections ===== */
 
-        /* General section spacing */
         #invitation>.section {
             padding-top: 48px;
             padding-bottom: 48px;
         }
 
-        /* Welcome section */
         #invitation .welcome {
             padding-top: 45px;
             padding-bottom: 40px;
         }
 
-        /* Reduce gaps around section headings */
         #invitation .section h2 {
             margin-top: 10px;
             margin-bottom: 18px;
         }
 
-        /* Bride and groom cards */
         #invitation .couple-layout {
             margin-top: 25px;
             gap: 24px;
         }
 
-        /* Couple photo section */
         #invitation .together-photos {
             margin-top: 32px;
         }
 
-        /* Wedding event cards */
         #invitation .event-grid {
             margin-top: 25px;
             gap: 14px;
         }
 
-        /* Venue cards */
         #invitation .venue-card {
             margin-top: 22px;
             padding: 32px 22px;
         }
 
-        /* Reduce space between the two venue sections */
         #invitation>.venue+.venue {
             padding-top: 20px;
         }
 
-        /* Closing section */
         #invitation>.closing {
             padding: 45px 20px;
         }
 
-        /* Tighten closing text spacing */
         #invitation .closing-content h2 {
             margin: 12px 0;
         }
@@ -1003,7 +971,6 @@
             margin: 8px 0;
         }
 
-        /* Keep countdown visually balanced */
         #invitation .countdown {
             margin-top: 25px;
             gap: 12px;
@@ -1067,24 +1034,19 @@
             margin: 48px auto;
             padding: 55px 45px;
             overflow: hidden;
-
             background:
                 radial-gradient(circle at top left,
                     rgba(194, 160, 100, 0.12),
                     transparent 40%),
                 linear-gradient(145deg, #fffdf8, #f8f0e4);
-
             border: 1px solid rgba(194, 160, 100, 0.75);
             border-radius: 4px;
-
             box-shadow:
                 0 12px 35px rgba(75, 43, 36, 0.09),
                 inset 0 0 0 6px rgba(194, 160, 100, 0.07);
-
             text-align: center;
         }
 
-        /* Delicate inner gold frame */
         #invitation .welcome::before {
             content: "";
             position: absolute;
@@ -1093,13 +1055,11 @@
             pointer-events: none;
         }
 
-        /* Keep the text above the decorative frame */
         #invitation .welcome>* {
             position: relative;
             z-index: 1;
         }
 
-        /* Small decorative heart */
         #invitation .welcome .dark-ornament {
             font-size: 1.8rem;
             line-height: 1;
@@ -1111,7 +1071,6 @@
             content: "♡";
         }
 
-        /* Elegant welcome heading */
         #invitation .welcome h2 {
             font-family: "Cormorant Garamond", serif;
             font-size: clamp(2.2rem, 5vw, 3.5rem);
@@ -1121,7 +1080,6 @@
             margin: 18px 0 22px;
         }
 
-        /* Comfortable paragraph spacing */
         #invitation .welcome .body-copy {
             max-width: 480px;
             margin: 0 auto;
@@ -1130,14 +1088,12 @@
             color: #78685d;
         }
 
-        /* Couple's names */
         #invitation .welcome .script-name {
             font-size: clamp(2.3rem, 6vw, 3.2rem);
             margin-top: 24px;
             color: var(--maroon);
         }
 
-        /* Mobile layout */
         @media (max-width: 700px) {
             #invitation .welcome {
                 width: calc(100% - 28px);
@@ -1176,7 +1132,6 @@
             }
         }
 
-        /* Respect reduced-motion preferences */
         @media (prefers-reduced-motion: no-preference) {
             #invitation .welcome.show {
                 animation: welcomeCardReveal 0.9s ease both;
@@ -1196,7 +1151,6 @@
         }
 
         /* ===== LUXURY GOLD WEDDING FRAME ===== */
-
         /* ===== ELEGANT WEDDING FRAME — OUR JOURNEY TOGETHER ===== */
 
         #invitation .together-photos {
@@ -1215,7 +1169,6 @@
                 0 12px 30px rgba(83, 48, 30, 0.12);
         }
 
-        /* Fine inner gold border */
         #invitation .together-photos::before {
             content: "";
             position: absolute;
@@ -1224,7 +1177,6 @@
             pointer-events: none;
         }
 
-        /* Decorative hearts above the frame */
         #invitation .together-photos::after {
             content: "♥  ♡  ♥";
             position: absolute;
@@ -1233,11 +1185,13 @@
             transform: translateX(-50%);
             padding: 2px 16px;
             white-space: nowrap;
-            color: #712c36;
+            color: #c2a064;
             background: #fffaf1;
             border: 1px solid #c9a34e;
             font-size: 16px;
             letter-spacing: 4px;
+            line-height: 1.4;
+            box-sizing: border-box;
         }
 
         #invitation .together-photos .eyebrow,
@@ -1262,25 +1216,6 @@
             margin: 8px 0 25px;
         }
 
-        /* Decorative hearts — consistent antique gold on all devices */
-        #invitation .together-photos::after {
-            content: "♥  ♡  ♥";
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 2px 16px;
-            white-space: nowrap;
-            color: #c2a064;
-            background: #fffaf1;
-            border: 1px solid #c9a34e;
-            font-size: 16px;
-            letter-spacing: 4px;
-            line-height: 1.4;
-            box-sizing: border-box;
-        }
-
-        /* Keep the same look on mobile */
         @media (max-width: 600px) {
             #invitation .together-photos::after {
                 top: -16px;
@@ -1303,7 +1238,6 @@
             animation: fadeUp 0.7s ease both;
         }
 
-        /* Highlighted "Two hearts, one beautiful journey" */
         #invitation .together-caption {
             display: table;
             max-width: 100%;
@@ -1334,7 +1268,6 @@
             font-size: 0.8em;
         }
 
-        /* Mobile styling */
         @media (max-width: 600px) {
             #invitation .together-photos {
                 width: calc(100% - 30px);
@@ -1380,23 +1313,18 @@
             grid-template-columns: minmax(110px, 0.85fr) minmax(0, 1fr);
             gap: 18px;
             align-items: center;
-
             padding: 28px 18px 20px;
             background: linear-gradient(145deg, #fffdf8, #f7ecd9, #fffaf1);
-
             border: 2px solid #c9a34e;
             outline: 1px solid #8f6825;
             outline-offset: 3px;
-
             box-shadow:
                 inset 0 0 0 6px rgba(201, 163, 78, 0.09),
                 0 12px 30px rgba(83, 48, 30, 0.12);
-
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Fine inner gold frame */
         #invitation .person-photo-card::before {
             content: "";
             position: absolute;
@@ -1406,34 +1334,28 @@
             z-index: 0;
         }
 
-        /* Decorative hearts above each card */
         #invitation .person-photo-card::after {
             content: "♥  ♡  ♥";
             position: absolute;
             top: -17px;
             left: 50%;
             transform: translateX(-50%);
-
             padding: 2px 12px;
             white-space: nowrap;
-
             color: #c2a064;
             background: #fffaf1;
             border: 1px solid #c9a34e;
-
             font-size: 15px;
             letter-spacing: 3px;
             line-height: 1.4;
             z-index: 2;
         }
 
-        /* Keep the photo and personal details above the inner frame */
         #invitation .person-photo-card>* {
             position: relative;
             z-index: 1;
         }
 
-        /* Elegant photo presentation */
         #invitation .person-photo-card .couple-photo {
             min-height: 260px;
             background: #eadcc7;
@@ -1448,7 +1370,6 @@
             object-position: center;
         }
 
-        /* Refined text styling */
         #invitation .person-photo-card .script-name {
             margin: 8px 0 4px;
             color: #712c36;
@@ -1473,7 +1394,6 @@
             overflow-wrap: anywhere;
         }
 
-        /* Gentle hover effect on desktop */
         @media (hover: hover) and (pointer: fine) {
             #invitation .person-photo-card:hover {
                 transform: translateY(-4px);
@@ -1483,7 +1403,6 @@
             }
         }
 
-        /* Mobile styling */
         @media (max-width: 700px) {
             #invitation .person-photo-card {
                 grid-template-columns: minmax(95px, 0.8fr) minmax(0, 1fr);
@@ -1491,7 +1410,6 @@
                 padding: 24px 12px 16px;
                 border-width: 2px;
                 outline-offset: 3px;
-
                 box-shadow:
                     inset 0 0 0 4px rgba(201, 163, 78, 0.08),
                     0 8px 20px rgba(83, 48, 30, 0.12);
@@ -1531,7 +1449,6 @@
             }
         }
 
-        /* Extra-small phones */
         @media (max-width: 360px) {
             #invitation .person-photo-card {
                 grid-template-columns: minmax(85px, 0.75fr) minmax(0, 1fr);
@@ -1552,10 +1469,8 @@
             }
         }
 
-
         /* ===== MATCHING GOLDEN FRAME EFFECT FOR ALL CARDS ===== */
 
-        /* Wedding event cards and venue cards */
         #invitation .event-card,
         #invitation .venue-card {
             position: relative;
@@ -1563,19 +1478,15 @@
                     #fffdf8,
                     #f7ecd9,
                     #fffaf1);
-
             border: 2px solid #c9a34e;
             outline: 1px solid #8f6825;
             outline-offset: 3px;
-
             box-shadow:
                 inset 0 0 0 5px rgba(201, 163, 78, 0.08),
                 0 10px 25px rgba(83, 48, 30, 0.10);
-
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Delicate inner gold border */
         #invitation .event-card::before,
         #invitation .venue-card::before {
             content: "";
@@ -1585,7 +1496,6 @@
             pointer-events: none;
         }
 
-        /* Decorative hearts above each card */
         #invitation .event-card::after,
         #invitation .venue-card::after {
             content: "♥  ♡  ♥";
@@ -1593,35 +1503,28 @@
             top: -17px;
             left: 50%;
             transform: translateX(-50%);
-
             padding: 2px 12px;
             white-space: nowrap;
-
             color: #c2a064;
             background: #fffaf1;
             border: 1px solid #c9a34e;
-
             font-size: 14px;
             letter-spacing: 3px;
             line-height: 1.4;
         }
 
-        /* Keep card content above the decorative inner border */
         #invitation .event-card>*,
         #invitation .venue-card>* {
             position: relative;
             z-index: 1;
         }
 
-        /* Consistent gold styling for event icons */
         #invitation .event-card .event-icon,
         #invitation .venue-card .venue-decoration {
             color: #c2a064;
         }
 
-        /* Subtle hover effect on desktop */
         @media (hover: hover) and (pointer: fine) {
-
             #invitation .event-card:hover,
             #invitation .venue-card:hover {
                 transform: translateY(-4px);
@@ -1631,14 +1534,11 @@
             }
         }
 
-        /* Responsive gold frames for phones */
         @media (max-width: 700px) {
-
             #invitation .event-card,
             #invitation .venue-card {
                 border-width: 2px;
                 outline-offset: 3px;
-
                 box-shadow:
                     inset 0 0 0 4px rgba(201, 163, 78, 0.08),
                     0 8px 20px rgba(83, 48, 30, 0.10);
@@ -1658,23 +1558,30 @@
             }
         }
 
-        /* Gold border for With Love and Happiness section */
         #invitation .closing-section {
             border: 1px solid #c9a34e !important;
         }
 
-
         /* ===== MATCHING GOLD FRAME — WITH LOVE AND HAPPINESS ===== */
 
+        /* Updated to match the same warm ivory-and-gold colour as the other cards */
         #invitation .welcome {
             position: relative;
-            background: #ffffff !important;
+            background: linear-gradient(
+                145deg,
+                #fffdf8,
+                #f7ecd9,
+                #fffaf1
+            ) !important;
             border: 2px solid #c9a34e;
             outline: 1px solid #8f6825;
             outline-offset: 4px;
             box-shadow:
                 inset 0 0 0 6px rgba(201, 163, 78, 0.09),
                 0 12px 30px rgba(83, 48, 30, 0.12);
+
+            /* Allow the decorative hearts above the card to remain visible */
+            overflow: visible;
         }
 
         /* Fine inner gold border */
@@ -1702,7 +1609,8 @@
             padding: 2px 16px;
             white-space: nowrap;
             color: #c2a064;
-            background: #ffffff;
+            -webkit-text-fill-color: #c2a064;
+            background: #fffaf1;
             border: 1px solid #c9a34e;
             font-family: "Cormorant Garamond", serif;
             font-size: 16px;
@@ -1710,6 +1618,7 @@
             line-height: 1.4;
             box-sizing: border-box;
             z-index: 2;
+            pointer-events: none;
         }
 
         /* Mobile adjustments */
@@ -1764,14 +1673,13 @@
                 We invite you to celebrate our love
             </p>
 
-            <p class="hero-date"> 21 November 2026</p>
+            <p class="hero-date">21 November 2026</p>
 
             <button class="open-button" id="openInvitation">
                 OPEN OUR INVITATION <span>↓</span>
             </button>
 
         </div>
-
     </header>
 
     <!-- Main Invitation Content -->
@@ -1795,9 +1703,7 @@
                 the most beautiful chapter of our lives.
             </p>
 
-
             <p class="script-name couple-names-font">Naveen &amp; Deeksha</p>
-
 
         </section>
 
@@ -1857,7 +1763,6 @@
 
                 <p class="together-caption">Two hearts, one beautiful journey</p>
             </div>
-
 
         </section>
 
@@ -1969,8 +1874,7 @@
 
                 <h3>Hyderabad</h3>
 
-                <p class="venue-address">
-                </p>
+                <p class="venue-address"></p>
 
                 <p class="venue-time">
                     21 November 2026
@@ -1999,16 +1903,15 @@
 
                 <h3>Hyderabad</h3>
 
-                <p class="venue-address">
-                </p>
+                <p class="venue-address"></p>
 
                 <p class="venue-time">
                     22 November 2026
                 </p>
 
                 <a class="gold-button"
-                    href="https://www.google.com/maps/search/?api=1&query=Jenvi+Conventions+Hyderabad" target="_blank"
-                    rel="noopener noreferrer">
+                    href="https://www.google.com/maps/search/?api=1&query=Jenvi+Conventions+Hyderabad"
+                    target="_blank" rel="noopener noreferrer">
                     VIEW LOCATION ↗
                 </a>
 
@@ -2016,26 +1919,19 @@
 
         </section>
 
-        <!-- Photo Gallery 
-            <section class="gallery section reveal">
-
-                <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
-
-                <h2>Our Memories</h2>
-
-                <div class="gallery-grid">
-
-                    <img src="./invite-details.jpg" alt="Wedding celebration" loading="lazy">
-
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
-                        alt="Wedding memories" loading="lazy">
-
-                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80"
-                        alt="Wedding couple celebration" loading="lazy">
-
-                </div>
-
-            </section>-->
+        <!-- Photo Gallery
+        <section class="gallery section reveal">
+            <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
+            <h2>Our Memories</h2>
+            <div class="gallery-grid">
+                <img src="./invite-details.jpg" alt="Wedding celebration" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+                    alt="Wedding memories" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80"
+                    alt="Wedding couple celebration" loading="lazy">
+            </div>
+        </section>
+        -->
 
         <!-- Closing -->
         <section class="closing">
@@ -2044,8 +1940,8 @@
 
                 <p class="eyebrow">WITH LOVE, ALWAYS</p>
 
-
                 <h2 class="couple-names-font">Naveen <span>&amp;</span> Deeksha</h2>
+
                 <p>
                     We look forward to celebrating with you.
                 </p>
@@ -2071,9 +1967,7 @@
 
     </footer>
 
-    <!-- Put your JavaScript here -->
     <script>
-
         function createRosePetals(button) {
             const width = window.innerWidth;
             const height = window.innerHeight;
@@ -2086,9 +1980,7 @@
                 ["#fff0e5", "#edc5bd", "#c88987"]
             ];
 
-
             const count = width <= 700 ? 100 : 200;
-
 
             for (let i = 0; i < count; i++) {
                 const petal = document.createElement("span");
@@ -2102,7 +1994,6 @@
                 const duration = 6000 + Math.random() * 4000;
                 const delay = Math.random() * 2000;
 
-                // Use inline styles instead of the old CSS animation.
                 petal.style.position = "fixed";
                 petal.style.left = startX + "px";
                 petal.style.top = startY + "px";
@@ -2115,8 +2006,6 @@
                 petal.style.pointerEvents = "none";
                 petal.style.zIndex = "99999";
                 petal.style.opacity = "0";
-
-                // A separate class avoids conflicts with the old .rose-petal CSS.
                 petal.className = "rose-petal-js";
                 document.body.appendChild(petal);
 
@@ -2152,20 +2041,16 @@
                     animation.onfinish = () => petal.remove();
                     animation.oncancel = () => petal.remove();
                 } else {
-                    // Graceful fallback for browsers without the Web Animations API.
                     petal.remove();
                 }
             }
         }
-
 
         // Open invitation
         const openButton = document.getElementById("openInvitation");
         const invitation = document.getElementById("invitation");
 
         openButton.addEventListener("click", () => {
-            // Add sparkles when clicked
-            //createSparkles(openButton);
             createRosePetals(openButton);
 
             invitation.classList.add("visible");
@@ -2258,10 +2143,8 @@
             musicButton.setAttribute("aria-label", "Play background music");
         }
 
-        // Try autoplay as soon as the page loads
         window.addEventListener("load", startMusic);
 
-        // Keep the music button available for manual control
         musicButton.addEventListener("click", async () => {
             if (music.paused) {
                 await startMusic();
@@ -2273,41 +2156,42 @@
         // RSVP using WhatsApp
         const rsvpForm = document.getElementById("rsvpForm");
 
-        rsvpForm.addEventListener("submit", event => {
-            event.preventDefault();
+        if (rsvpForm) {
+            rsvpForm.addEventListener("submit", event => {
+                event.preventDefault();
 
-            const name = document.getElementById("guestName").value.trim();
-            const attendance = document.getElementById("attendance").value;
-            const guests = document.getElementById("guestCount").value;
+                const name = document.getElementById("guestName").value.trim();
+                const attendance = document.getElementById("attendance").value;
+                const guests = document.getElementById("guestCount").value;
 
-            if (!name || !attendance || !guests) {
-                alert("Please complete all fields.");
-                return;
-            }
+                if (!name || !attendance || !guests) {
+                    alert("Please complete all fields.");
+                    return;
+                }
 
-            // Replace with the recipient's WhatsApp number:
-            // country code + phone number, digits only.
-            const whatsappNumber = "91XXXXXXXXXX";
+                // Replace with the recipient's WhatsApp number:
+                // country code + phone number, digits only.
+                const whatsappNumber = "91XXXXXXXXXX";
 
-            if (!/^\d{10,15}$/.test(whatsappNumber)) {
-                alert("Please configure the WhatsApp number in script.js.");
-                return;
-            }
+                if (!/^\d{10,15}$/.test(whatsappNumber)) {
+                    alert("Please configure the WhatsApp number in script.js.");
+                    return;
+                }
 
-            const message =
-                `Wedding RSVP\n\n` +
-                `Name: ${name}\n` +
-                `Response: ${attendance}\n` +
-                `Number of guests: ${guests}\n\n` +
-                `Rohit & Srushti's Wedding`;
+                const message =
+                    `Wedding RSVP\n\n` +
+                    `Name: ${name}\n` +
+                    `Response: ${attendance}\n` +
+                    `Number of guests: ${guests}\n\n` +
+                    `Rohit & Srushti's Wedding`;
 
-            const url =
-                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                const url =
+                    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-            window.open(url, "_blank", "noopener,noreferrer");
-        });
+                window.open(url, "_blank", "noopener,noreferrer");
+            });
+        }
     </script>
-
 
     <script>
         // Photo-only slideshow for the two couple pictures.
@@ -2317,6 +2201,7 @@
             const dots = document.getElementById("couple-dots");
             const previous = document.getElementById("couple-prev");
             const next = document.getElementById("couple-next");
+
             if (!slides.length || !slideshow || !dots || !previous || !next) return;
 
             let current = 0;
@@ -2328,10 +2213,12 @@
                 const loadedSlides = Array.from(slides).filter(
                     slide => slide.naturalWidth > 0 && slide.naturalHeight > 0
                 );
+
                 if (loadedSlides.length) {
                     const narrowestRatio = Math.min(
                         ...loadedSlides.map(slide => slide.naturalWidth / slide.naturalHeight)
                     );
+
                     slideshow.style.setProperty("--couple-slide-ratio", String(narrowestRatio));
                 }
             }
@@ -2340,7 +2227,7 @@
                 if (slide.complete && slide.naturalWidth > 0) {
                     setSlideshowRatio();
                 } else {
-                    slide.addEventListener("load", setSlideshowRatio, {once: true});
+                    slide.addEventListener("load", setSlideshowRatio, { once: true });
                 }
             });
 
@@ -2359,6 +2246,7 @@
                 showSlide(current - 1);
                 restartAutoSlide();
             });
+
             next.addEventListener("click", () => {
                 showSlide(current + 1);
                 restartAutoSlide();

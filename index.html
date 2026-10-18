@@ -1265,17 +1265,32 @@
     margin: 8px 0 25px;
 }
 
-/* Photo frame — preserves the full image without stretching */
-#invitation .together-slides {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 7px;
+/* Decorative hearts — consistent antique gold on all devices */
+#invitation .together-photos::after {
+    content: "♥  ♡  ♥";
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 16px;
+    white-space: nowrap;
+    color: #c2a064;
     background: #fffaf1;
-    border: 2px solid #c9a34e;
-    outline: 1px solid rgba(143, 104, 37, 0.7);
-    outline-offset: 3px;
-    overflow: hidden;
-    aspect-ratio: var(--couple-slide-ratio, 4 / 3);
+    border: 1px solid #c9a34e;
+    font-size: 16px;
+    letter-spacing: 4px;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+/* Keep the same look on mobile */
+@media (max-width: 600px) {
+    #invitation .together-photos::after {
+        top: -16px;
+        padding: 2px 12px;
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
 }
 
 #invitation .together-slides img {

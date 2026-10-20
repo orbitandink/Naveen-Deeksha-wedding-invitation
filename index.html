@@ -186,7 +186,8 @@
         }
 
         .music-button.playing {
-            animation: rotateMusic 10s linear infinite;
+            animation: rotateMusic 20s linear infinite;
+            -webkit-animation: rotateMusic 20s linear infinite;
         }
 
         .section {
@@ -1851,6 +1852,50 @@
                 letter-spacing: 2px;
             }
         }
+
+
+        #invitation .events>.body-copy {
+            display: block;
+            max-width: 650px;
+            margin: 22px auto 32px;
+            padding: 16px 22px;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+            text-align: center;
+
+            color: var(--maroon);
+            background: linear-gradient(135deg,
+                    rgba(194, 160, 100, 0.13),
+                    rgba(255, 250, 241, 0.75),
+                    rgba(194, 160, 100, 0.13));
+            border-top: 1px solid rgba(194, 160, 100, 0.6);
+            border-bottom: 1px solid rgba(194, 160, 100, 0.6);
+            text-shadow: 0 1px 2px rgba(194, 160, 100, 0.25);
+            -webkit-text-fill-color: var(--maroon);
+        }
+
+        @media (max-width: 700px) {
+            #invitation .events>.body-copy {
+                font-size: 1.45rem;
+                padding: 14px 12px;
+                margin: 18px auto 26px;
+            }
+        }
+
+        /* Fix the location arrow on iOS Safari */
+        .gold-button {
+            font-variant-emoji: text;
+        }
+
+        .gold-button .location-arrow {
+            font-family: Arial, sans-serif;
+            font-variant-emoji: text;
+            -webkit-text-fill-color: currentColor;
+        }
     </style>
 </head>
 
@@ -2024,54 +2069,82 @@
                 Every moment is special when shared with you.
             </p>
 
+
             <div class="event-grid">
 
                 <article class="event-card featured-event">
-
                     <div class="event-icon">❤︎</div>
-
                     <p class="event-number">01</p>
-
-                    <h3>Wedding Time</h3>
-
-                    <p class="event-date">21 November 2026</p>
-
-                    <p class="event-time">9:52 AM</p>
-
+                    <h3>Bride's Haldi & Mehendi</h3>
+                    <p class="event-date">19 November 2026</p>
+                    <p class="event-time">Haldi · 11:00 AM</p>
+                    <p class="event-time">Mehendi · 4:00 PM</p>
+                    <p class="event-location">At Bride's Residence</p>
+                    <p class="event-location">(Sainikpuri)</p>
                     <div class="event-line"></div>
+                    <p class="event-description">
+                        A joyful celebration filled with colour,
+                        tradition, and beautiful memories.
+                    </p>
+                </article>
 
+                <article class="event-card featured-event">
+                    <div class="event-icon">❤︎</div>
+                    <p class="event-number">02</p>
+                    <h3>Groom's Haldi</h3>
+                    <p class="event-date">19 November 2026</p>
+                    <p class="event-time">10:00 AM</p>
+                    <p class="event-location">At Groom's Residence</p>
+                    <p class="event-location">(Alwal)</p>
+                    <div class="event-line"></div>
+                    <p class="event-description">
+                        A special tradition surrounded by love,
+                        laughter, and family.
+                    </p>
+                </article>
+
+                <article class="event-card featured-event">
+                    <div class="event-icon">❤︎</div>
+                    <p class="event-number">01</p>
+                    <h3>Wedding Time</h3>
+                    <p class="event-date">21 November 2026</p>
+                    <p class="event-time">9:52 AM</p>
+                    <div class="event-line"></div>
                     <p class="event-description">
                         Join us as we exchange vows and begin
                         our forever together.
                     </p>
-
+                    <a class="gold-button"
+                        href="https://www.google.com/maps/search/?api=1&query=MSR+Convention+Garden+Hyderabad"
+                        target="_blank" rel="noopener noreferrer">
+                        VIEW LOCATION ↗
+                    </a>
                 </article>
 
                 <article class="event-card featured-event">
-
                     <div class="event-icon">❤︎</div>
-
                     <p class="event-number">02</p>
-
                     <h3>The Reception</h3>
-
                     <p class="event-date">22 November 2026</p>
-
                     <p class="event-time">7:00 PM ONWARDS</p>
-
                     <div class="event-line"></div>
-
                     <p class="event-description">
                         Join us as we celebrate our togetherness.
                     </p>
-
+                    <a class="gold-button"
+                        href="https://www.google.com/maps/search/?api=1&query=Jenvi+Conventions+Hyderabad"
+                        target="_blank" rel="noopener noreferrer">
+                        VIEW LOCATION ↗
+                    </a>
                 </article>
+
 
             </div>
 
+
         </section>
 
-        <!-- Wedding Venue -->
+        <!-- Wedding Venue 
         <section class="venue section reveal">
 
             <p class="eyebrow">WHERE OUR STORY CONTINUES</p>
@@ -2099,8 +2172,6 @@
             </div>
 
         </section>
-
-        <!-- Reception Venue -->
         <section class="venue section reveal">
 
             <p class="eyebrow">WHERE OUR PARTY CONTINUES</p>
@@ -2128,6 +2199,7 @@
             </div>
 
         </section>
+    -->
 
         <!-- Wedding Live Stream -->
         <section class="venue section reveal">
@@ -2217,7 +2289,7 @@
                 ["#fff0e5", "#edc5bd", "#c88987"]
             ];
 
-            const count = width <= 700 ? 100 : 200;
+            const count = width <= 700 ? 150 : 350;
 
             for (let i = 0; i < count; i++) {
                 const petal = document.createElement("span");

@@ -183,15 +183,47 @@
             background: rgba(45, 29, 27, .9);
             cursor: pointer;
             font-size: 1.3rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .music-button.playing {
+        /* Rotate only the music symbol, not the button */
+        .music-symbol {
+            display: inline-block;
+            line-height: 1;
+            transform: rotate(0deg);
+            transform-origin: center center;
+            -webkit-transform: rotate(0deg);
+        }
+
+        .music-button.playing .music-symbol {
             animation: rotateMusic 60s linear infinite;
             -webkit-animation: rotateMusic 60s linear infinite;
-            animation-timing-function: linear;
-            -webkit-animation-timing-function: linear;
-            transform-origin: center center;
+            animation-play-state: running;
+            -webkit-animation-play-state: running;
             will-change: transform;
+        }
+
+        @keyframes rotateMusic {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes rotateMusic {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
         }
 
         .section {
@@ -1934,6 +1966,44 @@
             margin-left: 5px;
             vertical-align: -2px;
         }
+
+        /* Wedding Festivities — translucent background with gold border */
+        #invitation .events>h2 {
+            background: rgba(255, 255, 255, 0.25) !important;
+            border: 1px solid var(--gold) !important;
+            outline: none !important;
+            box-shadow: none !important;
+
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+            padding: 10px 24px;
+            color: var(--maroon);
+            -webkit-text-fill-color: var(--maroon);
+        }
+
+        /* All headings — translucent background, blur, and gold border */
+        #invitation .couple>.eyebrow,
+        #invitation .couple>h2,
+        #invitation .events>.eyebrow,
+        #invitation .events>h2,
+        #invitation>.venue>.eyebrow,
+        #invitation>.venue>h2,
+        #invitation .closing-content>.eyebrow,
+        #invitation .closing-content>h2 {
+            background-image: none !important;
+            background-color: rgba(255, 255, 255, 0.25) !important;
+
+            border: 1px solid var(--gold) !important;
+            outline: none !important;
+            box-shadow: none !important;
+
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+            color: var(--maroon);
+            -webkit-text-fill-color: var(--maroon);
+        }
     </style>
 </head>
 
@@ -1945,7 +2015,7 @@
     </audio>
 
     <button class="music-button" id="musicButton" aria-label="Play background music" aria-pressed="false">
-        ♫
+        <span class="music-symbol">♫</span>
     </button>
 
     <!-- Opening Wedding Invitation -->

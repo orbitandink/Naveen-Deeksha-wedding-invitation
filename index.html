@@ -186,8 +186,12 @@
         }
 
         .music-button.playing {
-            animation: rotateMusic 20s linear infinite;
-            -webkit-animation: rotateMusic 20s linear infinite;
+            animation: rotateMusic 60s linear infinite;
+            -webkit-animation: rotateMusic 60s linear infinite;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+            transform-origin: center center;
+            will-change: transform;
         }
 
         .section {

@@ -189,22 +189,23 @@
             justify-content: center;
         }
 
+
         /* Rotate only the music symbol, not the button */
         .music-symbol {
             display: inline-block;
             line-height: 1;
             transform: rotate(0deg);
-            transform-origin: center center;
             -webkit-transform: rotate(0deg);
+            transform-origin: center center;
+            -webkit-transform-origin: center center;
         }
 
         .music-button.playing .music-symbol {
-            animation: rotateMusic 60s linear infinite;
-            -webkit-animation: rotateMusic 60s linear infinite;
-            animation-play-state: running;
-            -webkit-animation-play-state: running;
+            animation: rotateMusic 120s linear infinite;
+            -webkit-animation: rotateMusic 120s linear infinite;
             will-change: transform;
         }
+
 
         @keyframes rotateMusic {
             from {
@@ -657,12 +658,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes rotateMusic {
-            to {
-                transform: rotate(360deg);
             }
         }
 
@@ -1967,22 +1962,21 @@
             vertical-align: -2px;
         }
 
-        /* Wedding Festivities — translucent background with gold border */
-        #invitation .events>h2 {
-            background: rgba(255, 255, 255, 0.25) !important;
-            border: 1px solid var(--gold) !important;
-            outline: none !important;
-            box-shadow: none !important;
 
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-
-            padding: 10px 24px;
-            color: var(--maroon);
-            -webkit-text-fill-color: var(--maroon);
+        /* iOS Safari: keep the music rotation slow and consistent */
+        @supports (-webkit-touch-callout: none) {
+            .music-button.playing .music-symbol {
+                -webkit-animation: rotateMusic 120s linear infinite;
+                animation: rotateMusic 120s linear infinite;
+            }
         }
 
-        /* All headings — translucent background, blur, and gold border */
+
+        /* ===== CONSISTENT HEADING ALIGNMENT — DESKTOP, iOS & ANDROID ===== */
+
+        /* Main headings and section labels */
+        #invitation .welcome>.eyebrow,
+        #invitation .welcome>h2,
         #invitation .couple>.eyebrow,
         #invitation .couple>h2,
         #invitation .events>.eyebrow,
@@ -1991,18 +1985,86 @@
         #invitation>.venue>h2,
         #invitation .closing-content>.eyebrow,
         #invitation .closing-content>h2 {
-            background-image: none !important;
-            background-color: rgba(255, 255, 255, 0.25) !important;
+            box-sizing: border-box;
+            position: relative;
+            left: auto;
+            right: auto;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            max-width: 100%;
+        }
 
-            border: 1px solid var(--gold) !important;
-            outline: none !important;
-            box-shadow: none !important;
+        /* Consistent sizing for headings with the decorative image */
+        #invitation .couple>.eyebrow,
+        #invitation .couple>h2,
+        #invitation .events>.eyebrow,
+        #invitation .events>h2,
+        #invitation>.venue>.eyebrow,
+        #invitation>.venue>h2,
+        #invitation .closing-content>.eyebrow,
+        #invitation .closing-content>h2 {
+            display: table;
+            width: auto;
+            max-width: 100%;
+            padding: 10px 24px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-wrap: break-word;
+        }
 
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+        /* Consistent text rendering on iOS Safari */
+        #invitation .couple>h2,
+        #invitation .events>h2,
+        #invitation>.venue>h2,
+        #invitation .closing-content>h2 {
+            -webkit-text-size-adjust: 100%;
+            text-wrap: balance;
+        }
 
-            color: var(--maroon);
-            -webkit-text-fill-color: var(--maroon);
+        /* Mobile sizing */
+        @media (max-width: 700px) {
+
+            #invitation .couple>.eyebrow,
+            #invitation .events>.eyebrow,
+            #invitation>.venue>.eyebrow,
+            #invitation .closing-content>.eyebrow {
+                padding: 8px 12px;
+                font-size: 0.62rem;
+                letter-spacing: 0.14em;
+                line-height: 1.8;
+            }
+
+            #invitation .couple>h2,
+            #invitation .events>h2,
+            #invitation>.venue>h2,
+            #invitation .closing-content>h2 {
+                padding: 8px 12px;
+                line-height: 1.2;
+            }
+        }
+
+        /* Very narrow phones */
+        @media (max-width: 360px) {
+
+            #invitation .couple>.eyebrow,
+            #invitation .events>.eyebrow,
+            #invitation>.venue>.eyebrow,
+            #invitation .closing-content>.eyebrow {
+                font-size: 0.56rem;
+                letter-spacing: 0.1em;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            #invitation .couple>h2,
+            #invitation .events>h2,
+            #invitation>.venue>h2,
+            #invitation .closing-content>h2 {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
         }
     </style>
 </head>

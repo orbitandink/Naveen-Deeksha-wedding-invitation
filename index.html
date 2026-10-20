@@ -191,6 +191,8 @@
 
 
         /* Rotate only the music symbol, not the button */
+
+        /* Consistent music rotation across desktop, iOS and Android */
         .music-symbol {
             display: inline-block;
             line-height: 1;
@@ -200,32 +202,6 @@
             -webkit-transform-origin: center center;
         }
 
-        .music-button.playing .music-symbol {
-            animation: rotateMusic 120s linear infinite;
-            -webkit-animation: rotateMusic 120s linear infinite;
-            will-change: transform;
-        }
-
-
-        @keyframes rotateMusic {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @-webkit-keyframes rotateMusic {
-            from {
-                -webkit-transform: rotate(0deg);
-            }
-
-            to {
-                -webkit-transform: rotate(360deg);
-            }
-        }
 
         .section {
             padding: 95px 24px;
@@ -2610,8 +2586,56 @@
         });
 
         // Background music
+
+        // Background music — consistent rotation on all devices
         const music = document.getElementById("weddingMusic");
         const musicButton = document.getElementById("musicButton");
+        const musicSymbol = musicButton.querySelector(".music-symbol");
+
+        const rotationDuration = 120000; // One full rotation every 120 seconds
+        let rotationStartTime = null;
+        let rotationFrame = null;
+        let accumulatedRotation = 0;
+
+        function animateMusicRotation(timestamp) {
+            if (rotationStartTime === null) {
+                rotationStartTime = timestamp;
+            }
+
+            const elapsed = timestamp - rotationStartTime;
+            const angle = (accumulatedRotation + elapsed / rotationDuration * 360) % 360;
+
+            musicSymbol.style.transform = `rotate(${angle}deg)`;
+            musicSymbol.style.webkitTransform = `rotate(${angle}deg)`;
+
+            if (musicButton.classList.contains("playing")) {
+                rotationFrame = requestAnimationFrame(animateMusicRotation);
+            }
+        }
+
+        function startRotation() {
+            if (rotationFrame !== null) return;
+
+            rotationStartTime = null;
+            rotationFrame = requestAnimationFrame(animateMusicRotation);
+        }
+
+        function stopRotation() {
+            if (rotationFrame !== null) {
+                cancelAnimationFrame(rotationFrame);
+                rotationFrame = null;
+            }
+
+            if (rotationStartTime !== null) {
+                accumulatedRotation =
+                    (accumulatedRotation +
+                        ((performance.now() - rotationStartTime) / rotationDuration) * 360) % 360;
+            }
+
+            rotationStartTime = null;
+            musicSymbol.style.transform = `rotate(${accumulatedRotation}deg)`;
+            musicSymbol.style.webkitTransform = `rotate(${accumulatedRotation}deg)`;
+        }
 
         async function startMusic() {
             try {
@@ -2620,6 +2644,8 @@
                 musicButton.classList.add("playing");
                 musicButton.setAttribute("aria-pressed", "true");
                 musicButton.setAttribute("aria-label", "Pause background music");
+
+                startRotation();
             } catch (error) {
                 console.info("Autoplay blocked by the browser.");
             }
@@ -2630,6 +2656,8 @@
             musicButton.classList.remove("playing");
             musicButton.setAttribute("aria-pressed", "false");
             musicButton.setAttribute("aria-label", "Play background music");
+
+            stopRotation();
         }
 
         window.addEventListener("load", startMusic);
@@ -2641,6 +2669,7 @@
                 stopMusic();
             }
         });
+
 
         // RSVP using WhatsApp
         const rsvpForm = document.getElementById("rsvpForm");

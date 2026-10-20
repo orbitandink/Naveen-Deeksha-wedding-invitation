@@ -1890,14 +1890,50 @@
             }
         }
 
-        /* Fix the location arrow on iOS Safari */
-        .gold-button {
-            font-variant-emoji: text;
+
+        /* Consistent location arrow on Android, iOS and desktop */
+        .gold-button .location-arrow {
+            display: inline-block;
+            position: relative;
+            width: 12px;
+            height: 12px;
+            margin-left: 8px;
+            vertical-align: -1px;
+            color: currentColor;
+            -webkit-text-fill-color: currentColor;
+        }
+
+        /* Draw the arrow using CSS instead of a Unicode character */
+        .gold-button .location-arrow::before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            right: 1px;
+            top: 2px;
+            border-top: 1.5px solid currentColor;
+            border-right: 1.5px solid currentColor;
+        }
+
+        .gold-button .location-arrow::after {
+            content: "";
+            position: absolute;
+            width: 11px;
+            height: 1.5px;
+            right: 0;
+            top: 6px;
+            background: currentColor;
+            transform: rotate(-45deg);
+            transform-origin: right center;
         }
 
         .gold-button .location-arrow {
+            display: inline-block;
             font-family: Arial, sans-serif;
-            font-variant-emoji: text;
+            font-size: 1em;
+            font-weight: normal;
+            line-height: 1;
+            color: inherit;
             -webkit-text-fill-color: currentColor;
         }
     </style>
